@@ -1,48 +1,71 @@
-import React from "react";
-import "./App.css";
-import Navbar from "./navbar";
-import ScrollToTopButton from "./ScrollToTopButton";
+import { useRef } from "react";
+import EGIcon from "./eg-icon.png";
 
-function App() {
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+const App = () => {
+  const nextSectionRef = useRef<HTMLElement | null>(null);
+
+  const handleScroll = () => {
+    if (nextSectionRef.current) {
+      const targetPosition = nextSectionRef.current.offsetTop;
+      const currentPosition = window.pageYOffset;
+      const distance = targetPosition - currentPosition;
+      const duration = 500;
+      let start: number;
+
+      const animation = (timestamp: number) => {
+        if (!start) start = timestamp;
+        const progress = timestamp - start;
+
+        window.scrollTo(0, easeInOutCubic(progress, currentPosition, distance, duration));
+
+        if (progress < duration) {
+          requestAnimationFrame(animation);
+        }
+      };
+
+      requestAnimationFrame(animation);
     }
   };
+
+  const easeInOutCubic = (t: number, b: number, c: number, d: number) => {
+    t /= d / 2;
+    if (t < 1) return c / 2 * t * t * t + b;
+    t -= 2;
+    return c / 2 * (t * t * t + 2) + b;
+  };
+
   return (
-    <div className="App text-white">
-      <ScrollToTopButton />
-      <Navbar scrollToSection={scrollToSection} />
-      <section id="home" className="h-screen bg-slate-600">
-        <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold  mb-8">Home</h2>
-          {/* Konten Works */}
+    <div>
+      <section className="h-screen relative w-full font-popin flex items-center">
+        <div className="w-full text-center px-6 lg:px-12 xl:px-28 flex flex-col justify-center items-center">
+          <img src={EGIcon} className="w-28" />
+          <div className="mt-4 mb-12 font-semibold text-xl tracking-wider flex">
+            <p>ELiteGroup</p>
+            <span className="px-1 text-black bg-neutral-100 rounded-sm">
+              Tech
+            </span>
+          </div>
+          <h1 className="font-semibold text-3xl lg:text-5xl xl:text-7xl tracking-widest">
+            Your Vision, Our Expertise
+          </h1>
+          <p className="mt-4 text-neutral-300 sm:w-2/3 lg:text-xl xl:text-2xl xl:w-1/2 tracking-wider">
+            High-Quality App Creation and Software Product Development Services
+            for Your Business
+          </p>
+        </div>
+        <div className="absolute bottom-8 left-0 right-0 flex justify-center">
+          <button onClick={handleScroll} className="animate-bounce hover:bg-neutral-800 active:bg-neutral-900 transition-all duration-200 px-4 py-2 rounded-full border border-neutral-200">
+            Get Started
+          </button>
         </div>
       </section>
-
-      <section id="works" className="h-screen bg-gray-800">
-        <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold  mb-8">Our Works</h2>
-          {/* Konten Works */}
-        </div>
-      </section>
-
-      <section id="service" className="h-screen bg-gray-900">
-        <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold  mb-8">Our Service</h2>
-          {/* Konten Service */}
-        </div>
-      </section>
-
-      <section id="contact" className="h-screen bg-gray-950">
-        <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold  mb-8">Contact Us</h2>
-          {/* Konten Contact */}
+      <section ref={nextSectionRef} className="h-screen w-full font-popin bg-neutral-900 flex items-center">
+        <div className="w-full text-center px-28 flex flex-col justify-center items-center">
+          <h1 className="font-semibold tracking-widest">Section 2</h1>
         </div>
       </section>
     </div>
   );
-}
+};
 
 export default App;
