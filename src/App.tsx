@@ -1,37 +1,14 @@
 import { useRef } from "react";
 import EGIcon from "./eg-icon.png";
+import { autoScroll } from "./utils/useScroll";
 
 const App = () => {
   const nextSectionRef = useRef<HTMLElement | null>(null);
 
   const handleScroll = () => {
     if (nextSectionRef.current) {
-      const targetPosition = nextSectionRef.current.offsetTop;
-      const currentPosition = window.pageYOffset;
-      const distance = targetPosition - currentPosition;
-      const duration = 500;
-      let start: number;
-
-      const animation = (timestamp: number) => {
-        if (!start) start = timestamp;
-        const progress = timestamp - start;
-
-        window.scrollTo(0, easeInOutCubic(progress, currentPosition, distance, duration));
-
-        if (progress < duration) {
-          requestAnimationFrame(animation);
-        }
-      };
-
-      requestAnimationFrame(animation);
+      autoScroll(nextSectionRef);
     }
-  };
-
-  const easeInOutCubic = (t: number, b: number, c: number, d: number) => {
-    t /= d / 2;
-    if (t < 1) return c / 2 * t * t * t + b;
-    t -= 2;
-    return c / 2 * (t * t * t + 2) + b;
   };
 
   return (
@@ -54,12 +31,18 @@ const App = () => {
           </p>
         </div>
         <div className="absolute bottom-8 left-0 right-0 flex justify-center">
-          <button onClick={handleScroll} className="animate-bounce hover:bg-neutral-800 active:bg-neutral-900 transition-all duration-200 px-4 py-2 rounded-full border border-neutral-200">
+          <button
+            onClick={handleScroll}
+            className="animate-bounce hover:bg-neutral-800 active:bg-neutral-900 transition-all duration-200 px-4 py-2 rounded-full border border-neutral-200"
+          >
             Get Started
           </button>
         </div>
       </section>
-      <section ref={nextSectionRef} className="h-screen w-full font-popin bg-neutral-900 flex items-center">
+      <section
+        ref={nextSectionRef}
+        className="h-screen w-full font-popin bg-neutral-900 flex items-center"
+      >
         <div className="w-full text-center px-28 flex flex-col justify-center items-center">
           <h1 className="font-semibold tracking-widest">Section 2</h1>
         </div>
