@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import EGIcon from "./eg-icon.png";
+import MainBg from "./mainbg.jpg";
 import { autoScroll } from "./utils/useScroll";
 import {
   companyDomainText,
@@ -19,7 +20,14 @@ const App = () => {
 
   return (
     <div>
-      <section className="h-screen relative w-full font-popin flex items-center">
+      <section
+        style={{
+          backgroundImage: `url(${MainBg})`,
+          backgroundSize: "cover",
+        }}
+        className="h-screen relative w-full font-popin flex items-center z-0"
+      >
+        <div className="absolute inset-0 z-[-10] backdrop-filter backdrop-blur-[6px] bg-opacity-[0.8] bg-black"></div>
         <div className="w-full text-center px-6 lg:px-12 xl:px-28 flex flex-col justify-center items-center">
           <img src={EGIcon} className="w-28" />
           <div className="mt-4 mb-12 font-semibold text-xl tracking-wider flex">
