@@ -8,7 +8,46 @@ import {
   sloganDescriptionText,
   sloganText,
 } from "./constants";
+import AnimatedNumbers from "react-animated-numbers";
+import OurProductSection from "./components/OurProductSection";
 
+const labelWCountData = [
+  {
+    label: "All Clients",
+    value: 25,
+  },
+  {
+    label: "Across countries",
+    value: 5,
+  },
+  {
+    label: "Products",
+    value: 10,
+  },
+  {
+    label: "EXPERIENCED TALENTS",
+    value: 8,
+  },
+];
+
+const LabelWithCount = ({ label, value }: { label: string; value: number }) => {
+  return (
+    <div className="font-semibold flex flex-col items-center tracking-wider">
+      <AnimatedNumbers
+        transitions={(index) => ({
+          type: "spring",
+          duration: index + 1,
+        })}
+        animateToNumber={value}
+        fontStyle={{
+          fontSize: 40,
+          textAlign: "center",
+        }}
+      />
+      <h1 className="uppercase">{label}</h1>
+    </div>
+  );
+};
 const App = () => {
   const nextSectionRef = useRef<HTMLElement | null>(null);
 
@@ -27,7 +66,7 @@ const App = () => {
         }}
         className="h-screen relative w-full font-popin flex items-center z-0"
       >
-        <div className="absolute inset-0 z-[-10] backdrop-filter backdrop-blur-[6px] bg-opacity-[0.8] bg-black"></div>
+        <div className="absolute inset-0 z-[-10] backdrop-filter backdrop-blur-[6px] bg-opacity-[0.7] bg-black"></div>
         <div className="w-full text-center px-6 lg:px-12 xl:px-28 flex flex-col justify-center items-center">
           <img src={EGIcon} className="w-28" />
           <div className="mt-4 mb-12 font-semibold text-xl tracking-wider flex">
@@ -54,12 +93,57 @@ const App = () => {
       </section>
       <section
         ref={nextSectionRef}
-        className="h-screen w-full font-popin bg-neutral-900 flex items-center"
+        className="w-full flex flex-col font-popin min-h-screen"
       >
-        <div className="w-full text-center px-28 flex flex-col justify-center items-center">
-          <h1 className="font-semibold tracking-widest">Section 2</h1>
+        <div className="w-full mb-20 lg:h-40 bg-neutral-500 text-center py-8 gap-y-6 lg:px-16 xl:px-28 flex flex-col sm:flex-row sm:gap-x-10 lg:gap-x-32 justify-center items-center">
+          {labelWCountData.map((val, idx) => (
+            <LabelWithCount key={idx} label={val.label} value={val.value} />
+          ))}
+        </div>
+        <div className="flex-1">
+          <div className="text-center mb-10 px-4">
+            <div className=" text-xl lg:text-2xl font-semibold ">
+              Software Development Services
+            </div>
+            <p>
+              Empower your team's potential or craft your project anew, EG Tech
+              stands as a premier software development ally with boundless
+              expertise.
+            </p>
+          </div>
+          <div className="w-full mb-20 grid sm:grid-cols-2 gap-y-8 xl:grid-cols-4 gap-x-8 lg:gap-x-16 px-8 xl:px-20">
+            <div className="bg-neutral-700 p-8 hover:-translate-y-2 duration-200 transition-all flex flex-col items-center rounded shadow shadow-slate-400">
+              <div className="h-40 w-1/2 mb-4 border border-white"></div>
+              <h1 className="font-semibold tracking-wide text-center text-xl">
+                Desktop App
+              </h1>
+              <p className="text-center">C#, WPF, WinForms, C++, Java, etc.</p>
+            </div>
+            <div className="bg-neutral-500 p-8 hover:-translate-y-2 duration-200 transition-all flex flex-col items-center rounded shadow shadow-slate-400">
+              <div className="h-40 w-1/2 mb-4 border border-white"></div>
+              <h1 className="font-semibold tracking-wide text-center text-xl">
+                Web App
+              </h1>
+              <p className="text-center">React, Vue, JavaScript, HTML5, etc.</p>
+            </div>
+            <div className="bg-neutral-700 p-8 hover:-translate-y-2 duration-200 transition-all flex flex-col items-center rounded shadow shadow-slate-400">
+              <div className="h-40 w-1/2 mb-4 border border-white"></div>
+              <h1 className="font-semibold tracking-wide text-center text-xl">
+                Mobile App
+              </h1>
+              <p className="text-center">Android, iOS, RN, Flutter, etc.</p>
+            </div>
+            <div className="bg-neutral-500 p-8 hover:-translate-y-2 duration-200 transition-all flex flex-col items-center rounded shadow shadow-slate-400">
+              <div className="h-40 w-1/2 mb-4 border border-white"></div>
+              <h1 className="font-semibold tracking-wide text-center text-xl">
+                IoT Module
+              </h1>
+              <p className="text-center">Arduino Uno, esp, etc.</p>
+            </div>
+          </div>
         </div>
       </section>
+      <OurProductSection />
     </div>
   );
 };
