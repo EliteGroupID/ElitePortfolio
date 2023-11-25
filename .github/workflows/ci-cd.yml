@@ -3,7 +3,7 @@ name: Deploy to DigitalOcean
 on:
   push:
     branches:
-      - main # Adjust to your branch name
+      - main
 
 jobs:
   deploy:
@@ -16,16 +16,14 @@ jobs:
       - name: Install SSH client
         run: sudo apt-get install -y openssh-client
 
-      - name: Set up SSH key
+      - name: Configure SSH agent and add private key
         run: |
           mkdir -p ~/.ssh/
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
-          ssh-keyscan -H 128.199.202.18 >> ~/.ssh/known_hosts
-          chmod 644 ~/.ssh/known_hosts
+          eval $(ssh-agent -s)
+          ssh-add ~/.ssh/id_ed25519
 
       - name: Deploy via SSH
         run: |
-          ssh -i ~/.ssh/id_ed25519 root@128.199.202.18 'cd /var/www/production/elite-portfolio && git pull origin main && npm install && npm run build'
-
-      # Additional steps if needed for restarting server or other deployment tasks
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 root@128.199.202.18 'cd /var/www/production/elite-portfolio && git pull origin main && npm install && npm run build'
