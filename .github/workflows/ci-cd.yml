@@ -20,7 +20,7 @@ jobs:
           username: "root"
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /path/to/your/react/app
+            cd /var/www/production/elite-portfolio
             git pull origin main
             npm install
             npm run build
