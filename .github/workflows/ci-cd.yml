@@ -13,17 +13,23 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install SSH client
-        run: sudo apt-get install -y openssh-client
-
-      - name: Configure SSH agent and add private key
-        run: |
-          mkdir -p ~/.ssh/
-          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          eval $(ssh-agent -s)
-          ssh-add ~/.ssh/id_rsa
-
       - name: Deploy via SSH
-        run: |
-          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa root@128.199.202.18 'cd /var/www/production/elite-portfolio && git pull origin main && npm install && npm run build'
+        uses: appleboy/ssh-action@master
+        with:
+          host: 128.199.202.18
+          username: "root"
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /path/to/your/react/app
+            git pull origin main
+            npm install
+            npm run build
+
+      - name: Copy build files to server
+        uses: appleboy/scp-action@master
+        with:
+          host: 128.199.202.18
+          username: "root"
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: "build/*" # Source files or directories
+          target: "/var/www/production/elite-portfolio" # Destination directory on server
