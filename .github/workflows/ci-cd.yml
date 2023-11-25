@@ -19,13 +19,13 @@ jobs:
       - name: Set up SSH key
         run: |
           mkdir -p ~/.ssh/
-          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan -H 128.199.202.18 >> ~/.ssh/known_hosts
           chmod 644 ~/.ssh/known_hosts
 
       - name: Deploy via SSH
         run: |
-          ssh -v root@128.199.202.18 'cd /var/www/production/elite-portfolio && git pull origin main && npm install && npm run build'
+          ssh -v ~/.ssh/id_ed25519 root@128.199.202.18 'cd /var/www/production/elite-portfolio && git pull origin main && npm install && npm run build'
 
       # Additional steps if needed for restarting server or other deployment tasks
