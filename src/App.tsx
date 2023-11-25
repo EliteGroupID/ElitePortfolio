@@ -14,6 +14,8 @@ import {
 } from "./constants";
 import AnimatedNumbers from "react-animated-numbers";
 import OurProductSection from "./components/OurProductSection";
+import Footer from "./components/Footer";
+import ContactUs from "./components/ContactUs";
 
 const LabelWithCount = ({ label, value }: { label: string; value: number }) => {
   return (
@@ -118,6 +120,8 @@ const App = () => {
         </div>
       </section>
       <OurProductSection />
+      <ContactUs />
+      <Footer />
     </div>
   );
 };
