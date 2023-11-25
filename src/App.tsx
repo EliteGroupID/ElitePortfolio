@@ -1,6 +1,6 @@
 import { useRef } from "react";
-import EGIcon from "./eg-icon.png";
-import MainBg from "./mainbg.jpg";
+import EGIcon from "./assets/eg-icon.png";
+import MainBg from "./assets/mainbg.jpg";
 import { autoScroll } from "./utils/useScroll";
 import {
   companyDomainText,
