@@ -26,6 +26,6 @@ jobs:
 
       - name: Deploy via SSH
         run: |
-          ssh root@128.199.202.18 'cd /var/www/production/elite-portfolio && git pull origin main && npm install && npm run build'
+          ssh -v root@128.199.202.18 'cd /var/www/production/elite-portfolio && git pull origin main && npm install && npm run build'
 
       # Additional steps if needed for restarting server or other deployment tasks
