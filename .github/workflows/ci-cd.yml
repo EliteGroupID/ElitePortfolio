@@ -19,6 +19,9 @@ jobs:
           username: "root"
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
+            # Activate Node.js 18.18.2 using nvm or n (assuming you have nvm or n installed on your remote server)
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
             nvm use 18.18.2
             node -v
             cd /var/www/production/elite-portfolio
