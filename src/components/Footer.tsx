@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <div className="px-32 py-2 flex justify-center items-center">
+    <div className="lg:px-32 py-2 flex justify-center items-center">
       © Copyright 2023 Elite Tech
     </div>
   );
