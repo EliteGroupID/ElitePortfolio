@@ -4,7 +4,7 @@ import GMAIL from "../assets/gmail.webp";
 
 const ContactUs = () => {
   const openWhatsAppWeb = () => {
-    const phoneNumber = "1234567890";
+    const phoneNumber = "087748906897";
     const message = "Hello%20there!";
     const whatsappWebUrl = `https://wa.me/${phoneNumber}?text=${message}`;
     window.open(whatsappWebUrl, "_blank");
@@ -12,12 +12,12 @@ const ContactUs = () => {
 
   const openGmailApp = () => {
     const gmailUrl =
-      "https://mail.google.com/mail/?view=cm&fs=1&to=elitegroup@mail.com";
+      "https://mail.google.com/mail/?view=cm&fs=1&to=elite.tech@gmail.com";
     window.open(gmailUrl, "_blank");
   };
 
   const openInstagramApp = () => {
-    const instagramUrl = "https://www.instagram.com/mitrais/";
+    const instagramUrl = "https://www.instagram.com/elite.tech/";
     window.open(instagramUrl, "_blank");
   };
 
