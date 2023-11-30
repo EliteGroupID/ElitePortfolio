@@ -35,5 +35,5 @@ jobs:
           host: 128.199.202.18
           username: "root"
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "./dist" # Source files or directories
+          source: "dist/" # Source files or directories
           target: "/var/www/production/elite-portfolio" # Destination directory on server
