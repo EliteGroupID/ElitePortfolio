@@ -10,10 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "^18.0"
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Deploy via SSH
@@ -23,6 +19,7 @@ jobs:
           username: "root"
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
+            nvm use 18.18.2
             node -v
             cd /var/www/production/elite-portfolio
             git pull origin main
