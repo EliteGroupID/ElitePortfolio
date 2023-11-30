@@ -1,7 +1,7 @@
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
-import Epos from "../epos.png";
-import Evot from "../evot.png";
+import Epos from "../assets/epos.png";
+import Evot from "../assets/evot.png";
 
 const OurProductSection = () => {
   return (
