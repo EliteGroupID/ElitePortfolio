@@ -16,7 +16,6 @@ jobs:
           node-version: "^18.0"
       - name: Checkout code
         uses: actions/checkout@v2
-
       - name: Deploy via SSH
         uses: appleboy/ssh-action@master
         with:
@@ -24,6 +23,7 @@ jobs:
           username: "root"
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
+            node -v
             cd /var/www/production/elite-portfolio
             git pull origin main
             npm install
