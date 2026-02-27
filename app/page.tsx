@@ -9,7 +9,6 @@ import {
   servicesList,
   sloganDescriptionText,
   sloganText,
-  devIconURL,
 } from "../src/constants";
 
 const techStack = [
@@ -123,8 +122,12 @@ const App = () => {
               href={`/services/${val.slug}`}
               className="bg-neutral-700 p-8 hover:-translate-y-2 duration-200 transition-all flex flex-col items-center rounded shadow shadow-slate-400"
             >
-              <div className="h-32 w-1/3 mb-8">
-                <img src={`${devIconURL}${val.icon}`} />
+              <div className="h-20 w-20 mb-8 flex items-center justify-center">
+                <img
+                  src={`https://skillicons.dev/icons?i=${val.skillIcon}&theme=dark`}
+                  alt={val.title}
+                  className="w-16 h-16"
+                />
               </div>
               <h1 className="font-semibold tracking-wide text-center text-xl">
                 {val.title}

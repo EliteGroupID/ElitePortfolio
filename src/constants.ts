@@ -24,6 +24,7 @@ export const servicesList = [
         title: 'Desktop App',
         stack: 'C#, WPF, WinForms, C++, Java, etc.',
         icon: '/windows8/windows8-original.svg',
+        skillIcon: 'cs',
         description: 'We build powerful, performant desktop applications tailored to your workflow and business needs.',
         whatWeOffer: [
             'Custom Windows & cross-platform desktop applications',
@@ -43,6 +44,7 @@ export const servicesList = [
         title: 'Web App',
         stack: 'React, Vue, JavaScript, HTML5, etc.',
         icon: '/chrome/chrome-original.svg',
+        skillIcon: 'react',
         description: 'Modern, scalable web applications built with the latest front-end and back-end technologies.',
         whatWeOffer: [
             'Responsive single-page and multi-page web applications',
@@ -62,6 +64,7 @@ export const servicesList = [
         title: 'Mobile App',
         stack: 'Android, iOS, RN, Flutter, etc.',
         icon: '/android/android-original.svg',
+        skillIcon: 'androidstudio',
         description: 'Cross-platform and native mobile apps that deliver smooth experiences on Android and iOS.',
         whatWeOffer: [
             'Native Android & iOS app development',
@@ -81,6 +84,7 @@ export const servicesList = [
         title: 'IoT Module',
         stack: 'Arduino Uno, esp, etc.',
         icon: '/arduino/arduino-original.svg',
+        skillIcon: 'arduino',
         description: 'Smart IoT modules and embedded systems connecting the physical world to digital infrastructure.',
         whatWeOffer: [
             'Custom firmware development for embedded devices',
