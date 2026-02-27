@@ -95,7 +95,7 @@ const App = () => {
       <AboutUs />
 
       {/* Stats */}
-      <section id="stats" className="w-full bg-neutral-800 font-popin">
+      <section id="stats" className="w-full bg-gray-100 dark:bg-neutral-800 font-popin">
         <div className="w-full text-center py-8 gap-y-6 lg:px-16 xl:px-28 flex flex-col sm:flex-row sm:gap-x-10 lg:gap-x-32 justify-center items-center">
           {labelWCountData.map((val, idx) => (
             <LabelWithCount key={idx} label={val.label} value={val.value} />
@@ -104,12 +104,12 @@ const App = () => {
       </section>
 
       {/* Services */}
-      <section id="services" className="w-full py-20 font-popin">
+      <section id="services" className="w-full py-20 font-popin bg-white dark:bg-neutral-900">
         <div className="text-center mb-10 px-4">
-          <div className="text-xl lg:text-2xl font-semibold">
+          <div className="text-xl lg:text-2xl font-semibold text-neutral-900 dark:text-white">
             Software Development Services
           </div>
-          <p>
+          <p className="text-neutral-600 dark:text-neutral-300">
             Empower your team&apos;s potential or craft your project anew, EG
             Tech stands as a premier software development ally with boundless
             expertise.
@@ -120,7 +120,7 @@ const App = () => {
             <Link
               key={idx}
               href={`/services/${val.slug}`}
-              className="bg-neutral-700 p-8 hover:-translate-y-2 duration-200 transition-all flex flex-col items-center rounded shadow shadow-slate-400"
+              className="bg-gray-50 dark:bg-neutral-700 border border-gray-200 dark:border-neutral-600 p-8 hover:-translate-y-2 duration-200 transition-all flex flex-col items-center rounded shadow shadow-slate-200 dark:shadow-slate-400"
             >
               <div className="h-20 w-20 mb-8 flex items-center justify-center">
                 <img
@@ -129,10 +129,10 @@ const App = () => {
                   className="w-16 h-16"
                 />
               </div>
-              <h1 className="font-semibold tracking-wide text-center text-xl">
+              <h1 className="font-semibold tracking-wide text-center text-xl text-neutral-900 dark:text-white">
                 {val.title}
               </h1>
-              <p className="text-center">{val.stack}</p>
+              <p className="text-center text-neutral-600 dark:text-neutral-300">{val.stack}</p>
             </Link>
           ))}
         </div>
@@ -141,23 +141,23 @@ const App = () => {
       {/* Tech Stack */}
       <section
         id="tech-stack"
-        className="bg-neutral-900 font-popin py-14"
+        className="bg-gray-100 dark:bg-neutral-900 font-popin py-14"
       >
         <div className="text-center mb-8 px-4">
-          <h2 className="text-xl lg:text-2xl font-semibold">Technologies We Use</h2>
+          <h2 className="text-xl lg:text-2xl font-semibold text-neutral-900 dark:text-white">Technologies We Use</h2>
         </div>
         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-11 gap-4 px-8 xl:px-20 py-10">
           {techStack.map(({ icon, label }) => (
             <div
               key={icon}
-              className="flex flex-col items-center gap-2 p-4 bg-neutral-800 rounded-xl hover:bg-neutral-700 hover:scale-105 transition-all duration-200 cursor-default w-24"
+              className="flex flex-col items-center gap-2 p-4 bg-white dark:bg-neutral-800 border border-gray-200 dark:border-neutral-700 rounded-xl hover:bg-gray-50 dark:hover:bg-neutral-700 hover:scale-105 transition-all duration-200 cursor-default w-24"
             >
               <img
                 src={`https://skillicons.dev/icons?i=${icon}&theme=dark`}
                 className="w-12 h-12"
                 alt={label}
               />
-              <span className="text-xs text-neutral-300 font-medium">{label}</span>
+              <span className="text-xs text-neutral-600 dark:text-neutral-300 font-medium">{label}</span>
             </div>
           ))}
         </div>

@@ -4,7 +4,7 @@ import AnimatedNumbers from "react-animated-numbers";
 
 const LabelWithCount = ({ label, value }: { label: string; value: number }) => {
   return (
-    <div className="font-semibold flex flex-col items-center tracking-wider">
+    <div className="font-semibold flex flex-col items-center tracking-wider text-neutral-900 dark:text-white">
       <AnimatedNumbers
         transitions={(index) => ({
           type: "spring",

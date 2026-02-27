@@ -18,31 +18,31 @@ export default async function ProductDetailPage({
   if (!product) notFound();
 
   return (
-    <div className="min-h-screen bg-neutral-900 text-white font-popin">
+    <div className="min-h-screen bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white font-popin">
       {/* Header */}
-      <div className="bg-neutral-900/80 backdrop-blur-md border-b border-neutral-700 px-6 py-4 flex items-center gap-3">
+      <div className="bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md border-b border-gray-200 dark:border-neutral-700 px-6 py-4 flex items-center gap-3">
         <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
           <img src={EGIcon} className="w-8" alt="EG Icon" />
           <span className="font-semibold tracking-wide text-sm">EliteTech DEV</span>
         </Link>
-        <span className="text-neutral-600 mx-1">/</span>
-        <Link href="/products" className="text-neutral-400 text-sm hover:text-white transition-colors">
+        <span className="text-gray-400 dark:text-neutral-600 mx-1">/</span>
+        <Link href="/products" className="text-neutral-500 dark:text-neutral-400 text-sm hover:text-neutral-900 dark:hover:text-white transition-colors">
           Products
         </Link>
-        <span className="text-neutral-600 mx-1">/</span>
-        <span className="text-neutral-400 text-sm">{product.name}</span>
+        <span className="text-gray-400 dark:text-neutral-600 mx-1">/</span>
+        <span className="text-neutral-500 dark:text-neutral-400 text-sm">{product.name}</span>
       </div>
 
       {/* Hero */}
-      <section className="py-20 px-6 text-center bg-neutral-800 border-b border-neutral-700">
-        <p className="text-neutral-400 text-sm tracking-widest uppercase mb-2">Our Product</p>
+      <section className="py-20 px-6 text-center bg-gray-50 dark:bg-neutral-800 border-b border-gray-200 dark:border-neutral-700">
+        <p className="text-neutral-500 dark:text-neutral-400 text-sm tracking-widest uppercase mb-2">Our Product</p>
         <h1 className="text-4xl lg:text-6xl font-semibold mb-4">{product.name}</h1>
-        <p className="text-neutral-300 text-lg max-w-2xl mx-auto">{product.shortDesc}</p>
+        <p className="text-neutral-600 dark:text-neutral-300 text-lg max-w-2xl mx-auto">{product.shortDesc}</p>
       </section>
 
       <main className="max-w-5xl mx-auto px-6 py-16 space-y-20">
         {/* Main Image */}
-        <div className="rounded-xl overflow-hidden bg-neutral-800 border border-neutral-700">
+        <div className="rounded-xl overflow-hidden bg-gray-50 dark:bg-neutral-800 border border-gray-200 dark:border-neutral-700">
           <img
             src={product.image}
             alt={product.name}
@@ -57,12 +57,12 @@ export default async function ProductDetailPage({
             {product.features.map((feature, idx) => (
               <div
                 key={idx}
-                className="bg-neutral-800 rounded-xl p-6 flex items-start gap-4 border border-neutral-700 hover:-translate-y-1 transition-transform duration-200"
+                className="bg-gray-50 dark:bg-neutral-800 rounded-xl p-6 flex items-start gap-4 border border-gray-200 dark:border-neutral-700 hover:-translate-y-1 transition-transform duration-200"
               >
-                <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center shrink-0 text-sm font-bold">
+                <div className="w-8 h-8 rounded-full bg-neutral-900/10 dark:bg-white/10 flex items-center justify-center shrink-0 text-sm font-bold">
                   {idx + 1}
                 </div>
-                <p className="text-neutral-300 text-sm">{feature}</p>
+                <p className="text-neutral-600 dark:text-neutral-300 text-sm">{feature}</p>
               </div>
             ))}
           </div>
@@ -75,7 +75,7 @@ export default async function ProductDetailPage({
             {product.techStack.map((tech) => (
               <span
                 key={tech}
-                className="bg-neutral-700 text-neutral-200 px-4 py-2 rounded-full text-sm font-medium"
+                className="bg-gray-100 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-200 px-4 py-2 rounded-full text-sm font-medium"
               >
                 {tech}
               </span>
@@ -90,7 +90,7 @@ export default async function ProductDetailPage({
             {product.screenshots.map((src, idx) => (
               <div
                 key={idx}
-                className="rounded-xl overflow-hidden bg-neutral-800 border border-neutral-700"
+                className="rounded-xl overflow-hidden bg-gray-50 dark:bg-neutral-800 border border-gray-200 dark:border-neutral-700"
               >
                 <img
                   src={src}
@@ -103,14 +103,14 @@ export default async function ProductDetailPage({
         </section>
 
         {/* CTA */}
-        <section className="text-center bg-neutral-800 rounded-2xl py-14 px-6 border border-neutral-700">
+        <section className="text-center bg-gray-50 dark:bg-neutral-800 rounded-2xl py-14 px-6 border border-gray-200 dark:border-neutral-700">
           <h2 className="text-2xl font-semibold mb-3">Interested in {product.name}?</h2>
-          <p className="text-neutral-400 mb-8 max-w-md mx-auto">
+          <p className="text-neutral-500 dark:text-neutral-400 mb-8 max-w-md mx-auto">
             Get in touch with our team and let us know how we can help you.
           </p>
           <Link
             href="/#contact"
-            className="inline-block bg-white text-neutral-900 font-semibold px-8 py-3 rounded hover:bg-neutral-200 transition-colors duration-200"
+            className="inline-block bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 font-semibold px-8 py-3 rounded hover:bg-neutral-700 dark:hover:bg-neutral-200 transition-colors duration-200"
           >
             Contact Us
           </Link>

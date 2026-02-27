@@ -21,13 +21,13 @@ const reasons = [
 
 const WhyChooseUs = () => {
   return (
-    <section className="bg-neutral-800 py-24 px-6 lg:px-20 xl:px-32 font-popin">
+    <section className="bg-gray-50 dark:bg-neutral-800 py-24 px-6 lg:px-20 xl:px-32 font-popin">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-14">
-          <p className="text-neutral-400 text-sm tracking-widest uppercase mb-2">
+          <p className="text-neutral-500 dark:text-neutral-400 text-sm tracking-widest uppercase mb-2">
             Our Advantages
           </p>
-          <h2 className="text-3xl lg:text-4xl font-semibold text-white">
+          <h2 className="text-3xl lg:text-4xl font-semibold text-neutral-900 dark:text-white">
             Why Choose Us
           </h2>
         </div>
@@ -35,13 +35,13 @@ const WhyChooseUs = () => {
           {reasons.map((r) => (
             <div
               key={r.title}
-              className="bg-neutral-700 rounded-xl p-8 flex flex-col items-center text-center hover:-translate-y-2 transition-transform duration-200"
+              className="bg-white dark:bg-neutral-700 border border-gray-200 dark:border-neutral-600 rounded-xl p-8 flex flex-col items-center text-center hover:-translate-y-2 transition-transform duration-200"
             >
               <span className="text-5xl mb-4">{r.icon}</span>
-              <h3 className="text-white font-semibold text-xl mb-3">
+              <h3 className="text-neutral-900 dark:text-white font-semibold text-xl mb-3">
                 {r.title}
               </h3>
-              <p className="text-neutral-400 leading-relaxed">{r.description}</p>
+              <p className="text-neutral-500 dark:text-neutral-400 leading-relaxed">{r.description}</p>
             </div>
           ))}
         </div>

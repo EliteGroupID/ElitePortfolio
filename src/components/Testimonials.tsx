@@ -21,13 +21,13 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section className="bg-neutral-900 py-24 px-6 lg:px-20 xl:px-32 font-popin">
+    <section className="bg-gray-50 dark:bg-neutral-900 py-24 px-6 lg:px-20 xl:px-32 font-popin">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-14">
-          <p className="text-neutral-400 text-sm tracking-widest uppercase mb-2">
+          <p className="text-neutral-500 dark:text-neutral-400 text-sm tracking-widest uppercase mb-2">
             What Clients Say
           </p>
-          <h2 className="text-3xl lg:text-4xl font-semibold text-white">
+          <h2 className="text-3xl lg:text-4xl font-semibold text-neutral-900 dark:text-white">
             Testimonials
           </h2>
         </div>
@@ -35,17 +35,17 @@ const Testimonials = () => {
           {testimonials.map((t) => (
             <div
               key={t.name}
-              className="bg-neutral-800 rounded-xl p-8 flex flex-col"
+              className="bg-white dark:bg-neutral-800 border border-gray-200 dark:border-neutral-700 rounded-xl p-8 flex flex-col shadow-sm"
             >
               <div className="text-yellow-400 text-xl mb-4 tracking-wider">
                 ★★★★★
               </div>
-              <p className="text-neutral-300 leading-relaxed flex-1 mb-6 italic">
+              <p className="text-neutral-600 dark:text-neutral-300 leading-relaxed flex-1 mb-6 italic">
                 &ldquo;{t.quote}&rdquo;
               </p>
               <div>
-                <p className="text-white font-semibold">{t.name}</p>
-                <p className="text-neutral-400 text-sm">{t.company}</p>
+                <p className="text-neutral-900 dark:text-white font-semibold">{t.name}</p>
+                <p className="text-neutral-500 dark:text-neutral-400 text-sm">{t.company}</p>
               </div>
             </div>
           ))}

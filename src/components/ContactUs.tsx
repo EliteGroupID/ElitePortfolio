@@ -23,9 +23,9 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="lg:px-32 bg-neutral-900 py-20 flex flex-col items-center">
-      <h1 className="text-3xl font-bold mb-2">Get in Touch</h1>
-      <p className="text-neutral-400">We&apos;d love to hear from you</p>
+    <div className="lg:px-32 bg-gray-50 dark:bg-neutral-900 py-20 flex flex-col items-center">
+      <h1 className="text-3xl font-bold mb-2 text-neutral-900 dark:text-white">Get in Touch</h1>
+      <p className="text-neutral-500 dark:text-neutral-400">We&apos;d love to hear from you</p>
       <div className="flex flex-row w-full justify-center gap-x-12 lg:gap-x-24 mt-8">
         <button
           onClick={openWhatsAppWeb}
@@ -34,7 +34,7 @@ const ContactUs = () => {
           <div className="w-16 h-16 rounded-2xl bg-[#25D366] flex items-center justify-center group-hover:scale-110 transition-all duration-200 shadow-lg">
             <FaWhatsapp className="text-white text-3xl" />
           </div>
-          <p className="text-sm text-neutral-300 group-hover:text-white transition-colors">WhatsApp</p>
+          <p className="text-sm text-neutral-600 dark:text-neutral-300 group-hover:text-neutral-900 dark:group-hover:text-white transition-colors">WhatsApp</p>
         </button>
 
         <button
@@ -47,7 +47,7 @@ const ContactUs = () => {
           >
             <FaInstagram className="text-white text-3xl" />
           </div>
-          <p className="text-sm text-neutral-300 group-hover:text-white transition-colors">Instagram</p>
+          <p className="text-sm text-neutral-600 dark:text-neutral-300 group-hover:text-neutral-900 dark:group-hover:text-white transition-colors">Instagram</p>
         </button>
 
         <button
@@ -57,7 +57,7 @@ const ContactUs = () => {
           <div className="w-16 h-16 rounded-2xl bg-[#EA4335] flex items-center justify-center group-hover:scale-110 transition-all duration-200 shadow-lg">
             <SiGmail className="text-white text-3xl" />
           </div>
-          <p className="text-sm text-neutral-300 group-hover:text-white transition-colors">Gmail</p>
+          <p className="text-sm text-neutral-600 dark:text-neutral-300 group-hover:text-neutral-900 dark:group-hover:text-white transition-colors">Gmail</p>
         </button>
       </div>
     </div>
