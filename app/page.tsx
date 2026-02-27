@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import Link from "next/link";
 import {
   companyDomainText,
   companyNameText,
@@ -104,8 +105,9 @@ const App = () => {
         </div>
         <div className="w-full mb-20 grid sm:grid-cols-2 gap-y-8 xl:grid-cols-4 gap-x-8 lg:gap-x-16 px-8 xl:px-20">
           {servicesList.map((val, idx) => (
-            <div
+            <Link
               key={idx}
+              href={`/services/${val.slug}`}
               className="bg-neutral-700 p-8 hover:-translate-y-2 duration-200 transition-all flex flex-col items-center rounded shadow shadow-slate-400"
             >
               <div className="h-32 w-1/3 mb-8">
@@ -115,7 +117,7 @@ const App = () => {
                 {val.title}
               </h1>
               <p className="text-center">{val.stack}</p>
-            </div>
+            </Link>
           ))}
         </div>
       </section>

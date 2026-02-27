@@ -1,0 +1,120 @@
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { productsList } from "../../../src/constants";
+
+const EGIcon = "/assets/eg-icon.png";
+
+export function generateStaticParams() {
+  return productsList.map((p) => ({ slug: p.slug }));
+}
+
+export default function ProductDetailPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const product = productsList.find((p) => p.slug === params.slug);
+  if (!product) notFound();
+
+  return (
+    <div className="min-h-screen bg-neutral-900 text-white font-popin">
+      {/* Header */}
+      <div className="bg-neutral-900/80 backdrop-blur-md border-b border-neutral-700 px-6 py-4 flex items-center gap-3">
+        <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+          <img src={EGIcon} className="w-8" alt="EG Icon" />
+          <span className="font-semibold tracking-wide text-sm">EliteTech DEV</span>
+        </Link>
+        <span className="text-neutral-600 mx-1">/</span>
+        <Link href="/products" className="text-neutral-400 text-sm hover:text-white transition-colors">
+          Products
+        </Link>
+        <span className="text-neutral-600 mx-1">/</span>
+        <span className="text-neutral-400 text-sm">{product.name}</span>
+      </div>
+
+      {/* Hero */}
+      <section className="py-20 px-6 text-center bg-neutral-800 border-b border-neutral-700">
+        <p className="text-neutral-400 text-sm tracking-widest uppercase mb-2">Our Product</p>
+        <h1 className="text-4xl lg:text-6xl font-semibold mb-4">{product.name}</h1>
+        <p className="text-neutral-300 text-lg max-w-2xl mx-auto">{product.shortDesc}</p>
+      </section>
+
+      <main className="max-w-5xl mx-auto px-6 py-16 space-y-20">
+        {/* Main Image */}
+        <div className="rounded-xl overflow-hidden bg-neutral-800 border border-neutral-700">
+          <img
+            src={product.image}
+            alt={product.name}
+            className="w-full object-contain max-h-[480px] p-8"
+          />
+        </div>
+
+        {/* Features */}
+        <section>
+          <h2 className="text-2xl font-semibold mb-8 text-center">Key Features</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {product.features.map((feature, idx) => (
+              <div
+                key={idx}
+                className="bg-neutral-800 rounded-xl p-6 flex items-start gap-4 border border-neutral-700 hover:-translate-y-1 transition-transform duration-200"
+              >
+                <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center shrink-0 text-sm font-bold">
+                  {idx + 1}
+                </div>
+                <p className="text-neutral-300 text-sm">{feature}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Tech Stack */}
+        <section className="text-center">
+          <h2 className="text-2xl font-semibold mb-6">Tech Stack</h2>
+          <div className="flex flex-wrap justify-center gap-3">
+            {product.techStack.map((tech) => (
+              <span
+                key={tech}
+                className="bg-neutral-700 text-neutral-200 px-4 py-2 rounded-full text-sm font-medium"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        </section>
+
+        {/* Screenshots */}
+        <section>
+          <h2 className="text-2xl font-semibold mb-8 text-center">Screenshots</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {product.screenshots.map((src, idx) => (
+              <div
+                key={idx}
+                className="rounded-xl overflow-hidden bg-neutral-800 border border-neutral-700"
+              >
+                <img
+                  src={src}
+                  alt={`${product.name} screenshot ${idx + 1}`}
+                  className="w-full object-contain p-4 max-h-44"
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="text-center bg-neutral-800 rounded-2xl py-14 px-6 border border-neutral-700">
+          <h2 className="text-2xl font-semibold mb-3">Interested in {product.name}?</h2>
+          <p className="text-neutral-400 mb-8 max-w-md mx-auto">
+            Get in touch with our team and let us know how we can help you.
+          </p>
+          <Link
+            href="/#contact"
+            className="inline-block bg-white text-neutral-900 font-semibold px-8 py-3 rounded hover:bg-neutral-200 transition-colors duration-200"
+          >
+            Contact Us
+          </Link>
+        </section>
+      </main>
+    </div>
+  );
+}
