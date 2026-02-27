@@ -5,13 +5,26 @@ import Link from "next/link";
 import {
   companyDomainText,
   companyNameText,
-  devIconList,
-  devIconURL,
   labelWCountData,
   servicesList,
   sloganDescriptionText,
   sloganText,
+  devIconURL,
 } from "../src/constants";
+
+const techStack = [
+  { icon: "php", label: "PHP" },
+  { icon: "js", label: "JavaScript" },
+  { icon: "java", label: "Java" },
+  { icon: "html", label: "HTML5" },
+  { icon: "css", label: "CSS3" },
+  { icon: "tailwind", label: "Tailwind CSS" },
+  { icon: "react", label: "React" },
+  { icon: "vue", label: "Vue.js" },
+  { icon: "androidstudio", label: "Android" },
+  { icon: "electron", label: "Electron" },
+  { icon: "arduino", label: "Arduino" },
+];
 import Footer from "../src/components/Footer";
 import ContactUs from "../src/components/ContactUs";
 import Navbar from "../src/components/Navbar";
@@ -125,11 +138,24 @@ const App = () => {
       {/* Tech Stack */}
       <section
         id="tech-stack"
-        className="bg-neutral-800 bg-opacity-75 font-popin"
+        className="bg-neutral-900 font-popin py-14"
       >
-        <div className="flex px-4 flex-wrap gap-y-8 gap-x-8 xl:gap-x-16 justify-center py-8">
-          {devIconList.map((url, idx) => (
-            <img key={idx} src={`${devIconURL}${url}`} className="w-14" />
+        <div className="text-center mb-8 px-4">
+          <h2 className="text-xl lg:text-2xl font-semibold">Technologies We Use</h2>
+        </div>
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-11 gap-4 px-8 xl:px-20 py-10">
+          {techStack.map(({ icon, label }) => (
+            <div
+              key={icon}
+              className="flex flex-col items-center gap-2 p-4 bg-neutral-800 rounded-xl hover:bg-neutral-700 hover:scale-105 transition-all duration-200 cursor-default w-24"
+            >
+              <img
+                src={`https://skillicons.dev/icons?i=${icon}&theme=dark`}
+                className="w-12 h-12"
+                alt={label}
+              />
+              <span className="text-xs text-neutral-300 font-medium">{label}</span>
+            </div>
           ))}
         </div>
       </section>
