@@ -43,10 +43,11 @@ const OurProductSection = () => {
 
       {/* Carousel */}
       <div className="relative max-w-5xl mx-auto">
-        {/* Slide */}
+        {/* Fixed-height slide wrapper */}
+        <div className="h-[420px] xl:h-[320px] overflow-hidden flex items-center">
         <div
           key={current}
-          className="flex flex-col-reverse xl:flex-row items-center gap-10 transition-opacity duration-400"
+          className="flex flex-col-reverse xl:flex-row items-center gap-10 w-full"
           style={{ opacity: animating ? 0 : 1, transition: "opacity 0.4s ease" }}
         >
           {/* Image */}
@@ -87,6 +88,7 @@ const OurProductSection = () => {
               View Details →
             </Link>
           </div>
+        </div>
         </div>
 
         {/* Arrows */}
