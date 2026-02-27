@@ -3,8 +3,7 @@ import { notFound } from "next/navigation";
 import { productsList } from "../../../../src/constants";
 import { routing } from "../../../../src/i18n/routing";
 import { Link } from "../../../../src/i18n/navigation";
-
-const EGIcon = "/assets/eg-icon.png";
+import Navbar from "../../../../src/components/Navbar";
 
 export function generateStaticParams() {
   return routing.locales.flatMap((locale) =>
@@ -24,18 +23,18 @@ export default async function ProductDetailPage({
 
   return (
     <div className="min-h-screen bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white font-popin">
-      {/* Header */}
-      <div className="bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md border-b border-gray-200 dark:border-neutral-700 px-6 py-4 flex items-center gap-3">
-        <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-          <img src={EGIcon} className="w-8" alt="EG Icon" />
-          <span className="font-semibold tracking-wide text-sm">EliteTech DEV</span>
+      <Navbar />
+      {/* Breadcrumb */}
+      <div className="pt-16 border-b border-gray-200 dark:border-neutral-700 px-6 py-3 flex items-center gap-2 text-sm bg-white dark:bg-neutral-900">
+        <Link href="/" className="text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors">
+          Home
         </Link>
-        <span className="text-gray-400 dark:text-neutral-600 mx-1">/</span>
-        <Link href="/products" className="text-neutral-500 dark:text-neutral-400 text-sm hover:text-neutral-900 dark:hover:text-white transition-colors">
+        <span className="text-gray-400 dark:text-neutral-600">/</span>
+        <Link href="/products" className="text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors">
           {t("title")}
         </Link>
-        <span className="text-gray-400 dark:text-neutral-600 mx-1">/</span>
-        <span className="text-neutral-500 dark:text-neutral-400 text-sm">{product.name}</span>
+        <span className="text-gray-400 dark:text-neutral-600">/</span>
+        <span className="text-neutral-900 dark:text-white font-medium">{product.name}</span>
       </div>
 
       {/* Hero */}
