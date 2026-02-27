@@ -8,12 +8,13 @@ export function generateStaticParams() {
   return teamList.map((m) => ({ slug: m.slug }));
 }
 
-export default function TeamMemberPage({
+export default async function TeamMemberPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const member = teamList.find((m) => m.slug === params.slug);
+  const { slug } = await params;
+  const member = teamList.find((m) => m.slug === slug);
   if (!member) notFound();
 
   return (

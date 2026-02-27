@@ -8,12 +8,13 @@ export function generateStaticParams() {
   return servicesList.map((s) => ({ slug: s.slug }));
 }
 
-export default function ServiceDetailPage({
+export default async function ServiceDetailPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const service = servicesList.find((s) => s.slug === params.slug);
+  const { slug } = await params;
+  const service = servicesList.find((s) => s.slug === slug);
   if (!service) notFound();
 
   return (
