@@ -1,8 +1,6 @@
 "use client";
 
-import { useRef } from "react";
 import dynamic from "next/dynamic";
-import { autoScroll } from "../src/utils/useScroll";
 import {
   companyDomainText,
   companyNameText,
@@ -15,6 +13,12 @@ import {
 } from "../src/constants";
 import Footer from "../src/components/Footer";
 import ContactUs from "../src/components/ContactUs";
+import Navbar from "../src/components/Navbar";
+import AboutUs from "../src/components/AboutUs";
+import WhyChooseUs from "../src/components/WhyChooseUs";
+import OurTeam from "../src/components/OurTeam";
+import Testimonials from "../src/components/Testimonials";
+import CTABanner from "../src/components/CTABanner";
 
 const EGIcon = "/assets/eg-icon.png";
 const MainBg = "/assets/mainbg.jpg";
@@ -30,17 +34,18 @@ const OurProductSection = dynamic(
 );
 
 const App = () => {
-  const nextSectionRef = useRef<HTMLElement | null>(null);
-
   const handleScroll = () => {
-    if (nextSectionRef.current) {
-      autoScroll(nextSectionRef);
-    }
+    const el = document.getElementById("about");
+    if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <div>
+      <Navbar />
+
+      {/* Hero */}
       <section
+        id="hero"
         style={{
           backgroundImage: `url(${MainBg})`,
           backgroundSize: "cover",
@@ -72,48 +77,83 @@ const App = () => {
           </button>
         </div>
       </section>
-      <section
-        ref={nextSectionRef}
-        className="w-full flex flex-col font-popin min-h-screen"
-      >
-        <div className="w-full mb-20 bg-neutral-800 text-center py-8 gap-y-6 lg:px-16 xl:px-28 flex flex-col sm:flex-row sm:gap-x-10 lg:gap-x-32 justify-center items-center">
+
+      {/* About Us */}
+      <AboutUs />
+
+      {/* Stats */}
+      <section id="stats" className="w-full bg-neutral-800 font-popin">
+        <div className="w-full text-center py-8 gap-y-6 lg:px-16 xl:px-28 flex flex-col sm:flex-row sm:gap-x-10 lg:gap-x-32 justify-center items-center">
           {labelWCountData.map((val, idx) => (
             <LabelWithCount key={idx} label={val.label} value={val.value} />
           ))}
         </div>
-        <div className="flex-1">
-          <div className="text-center mb-10 px-4">
-            <div className=" text-xl lg:text-2xl font-semibold ">
-              Software Development Services
-            </div>
-            <p>
-              Empower your team's potential or craft your project anew, EG Tech
-              stands as a premier software development ally with boundless
-              expertise.
-            </p>
+      </section>
+
+      {/* Services */}
+      <section id="services" className="w-full py-20 font-popin">
+        <div className="text-center mb-10 px-4">
+          <div className="text-xl lg:text-2xl font-semibold">
+            Software Development Services
           </div>
-          <div className="w-full mb-20 grid sm:grid-cols-2 gap-y-8 xl:grid-cols-4 gap-x-8 lg:gap-x-16 px-8 xl:px-20">
-            {servicesList.map((val) => (
-              <div className="bg-neutral-700 p-8 hover:-translate-y-2 duration-200 transition-all flex flex-col items-center rounded shadow shadow-slate-400">
-                <div className="h-32 w-1/3 mb-8">
-                  <img src={`${devIconURL}${val.icon}`} />
-                </div>
-                <h1 className="font-semibold tracking-wide text-center text-xl">
-                  {val.title}
-                </h1>
-                <p className="text-center">{val.stack}</p>
+          <p>
+            Empower your team&apos;s potential or craft your project anew, EG
+            Tech stands as a premier software development ally with boundless
+            expertise.
+          </p>
+        </div>
+        <div className="w-full mb-20 grid sm:grid-cols-2 gap-y-8 xl:grid-cols-4 gap-x-8 lg:gap-x-16 px-8 xl:px-20">
+          {servicesList.map((val, idx) => (
+            <div
+              key={idx}
+              className="bg-neutral-700 p-8 hover:-translate-y-2 duration-200 transition-all flex flex-col items-center rounded shadow shadow-slate-400"
+            >
+              <div className="h-32 w-1/3 mb-8">
+                <img src={`${devIconURL}${val.icon}`} />
               </div>
-            ))}
-          </div>
-          <div className="bg-neutral-800 bg-opacity-75 flex px-4 flex-wrap gap-y-8 gap-x-8 xl:gap-x-16 justify-center py-4">
-            {devIconList.map((url) => (
-              <img src={`${devIconURL}${url}`} className="w-14" />
-            ))}
-          </div>
+              <h1 className="font-semibold tracking-wide text-center text-xl">
+                {val.title}
+              </h1>
+              <p className="text-center">{val.stack}</p>
+            </div>
+          ))}
         </div>
       </section>
-      <OurProductSection />
-      <ContactUs />
+
+      {/* Tech Stack */}
+      <section
+        id="tech-stack"
+        className="bg-neutral-800 bg-opacity-75 font-popin"
+      >
+        <div className="flex px-4 flex-wrap gap-y-8 gap-x-8 xl:gap-x-16 justify-center py-8">
+          {devIconList.map((url, idx) => (
+            <img key={idx} src={`${devIconURL}${url}`} className="w-14" />
+          ))}
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <WhyChooseUs />
+
+      {/* Our Products */}
+      <div id="products">
+        <OurProductSection />
+      </div>
+
+      {/* Our Team */}
+      <OurTeam />
+
+      {/* Testimonials */}
+      <Testimonials />
+
+      {/* CTA Banner */}
+      <CTABanner />
+
+      {/* Contact Us */}
+      <section id="contact">
+        <ContactUs />
+      </section>
+
       <Footer />
     </div>
   );
