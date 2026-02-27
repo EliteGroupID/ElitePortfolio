@@ -1,18 +1,22 @@
 "use client";
 
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "../i18n/navigation";
 import ThemeToggle from "./ThemeToggle";
+import LocaleSwitcher from "./LocaleSwitcher";
 
 const EGIcon = "/assets/eg-icon.png";
 
-const scrollLinks = [
-  { label: "About", href: "about" },
-  { label: "Services", href: "services" },
-  { label: "Team", href: "team" },
-  { label: "Contact", href: "contact" },
-];
-
 const Navbar = () => {
+  const t = useTranslations("nav");
+
+  const scrollLinks = [
+    { label: t("about"), href: "about" },
+    { label: t("services"), href: "services" },
+    { label: t("team"), href: "team" },
+    { label: t("contact"), href: "contact" },
+  ];
+
   const handleScroll = (id: string) => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth" });
@@ -43,11 +47,14 @@ const Navbar = () => {
               href="/products"
               className="text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white transition-colors duration-200 text-sm tracking-wide"
             >
-              Products
+              {t("products")}
             </Link>
           </li>
           <li>
             <ThemeToggle />
+          </li>
+          <li>
+            <LocaleSwitcher />
           </li>
         </ul>
       </div>

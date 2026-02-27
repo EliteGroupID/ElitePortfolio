@@ -1,21 +1,26 @@
-import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { productsList } from "../../../src/constants";
+import { productsList } from "../../../../src/constants";
+import { routing } from "../../../../src/i18n/routing";
+import { Link } from "../../../../src/i18n/navigation";
 
 const EGIcon = "/assets/eg-icon.png";
 
 export function generateStaticParams() {
-  return productsList.map((p) => ({ slug: p.slug }));
+  return routing.locales.flatMap((locale) =>
+    productsList.map((p) => ({ locale, slug: p.slug }))
+  );
 }
 
 export default async function ProductDetailPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }) {
   const { slug } = await params;
   const product = productsList.find((p) => p.slug === slug);
   if (!product) notFound();
+  const t = await getTranslations("products");
 
   return (
     <div className="min-h-screen bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white font-popin">
@@ -27,7 +32,7 @@ export default async function ProductDetailPage({
         </Link>
         <span className="text-gray-400 dark:text-neutral-600 mx-1">/</span>
         <Link href="/products" className="text-neutral-500 dark:text-neutral-400 text-sm hover:text-neutral-900 dark:hover:text-white transition-colors">
-          Products
+          {t("title")}
         </Link>
         <span className="text-gray-400 dark:text-neutral-600 mx-1">/</span>
         <span className="text-neutral-500 dark:text-neutral-400 text-sm">{product.name}</span>
@@ -52,7 +57,7 @@ export default async function ProductDetailPage({
 
         {/* Features */}
         <section>
-          <h2 className="text-2xl font-semibold mb-8 text-center">Key Features</h2>
+          <h2 className="text-2xl font-semibold mb-8 text-center">{t("keyFeatures")}</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {product.features.map((feature, idx) => (
               <div
@@ -70,7 +75,7 @@ export default async function ProductDetailPage({
 
         {/* Tech Stack */}
         <section className="text-center">
-          <h2 className="text-2xl font-semibold mb-6">Tech Stack</h2>
+          <h2 className="text-2xl font-semibold mb-6">{t("techStack")}</h2>
           <div className="flex flex-wrap justify-center gap-3">
             {product.techStack.map((tech) => (
               <span
@@ -85,7 +90,7 @@ export default async function ProductDetailPage({
 
         {/* Screenshots */}
         <section>
-          <h2 className="text-2xl font-semibold mb-8 text-center">Screenshots</h2>
+          <h2 className="text-2xl font-semibold mb-8 text-center">{t("screenshots")}</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {product.screenshots.map((src, idx) => (
               <div
@@ -104,15 +109,15 @@ export default async function ProductDetailPage({
 
         {/* CTA */}
         <section className="text-center bg-gray-50 dark:bg-neutral-800 rounded-2xl py-14 px-6 border border-gray-200 dark:border-neutral-700">
-          <h2 className="text-2xl font-semibold mb-3">Interested in {product.name}?</h2>
+          <h2 className="text-2xl font-semibold mb-3">{t("interested")} {product.name}?</h2>
           <p className="text-neutral-500 dark:text-neutral-400 mb-8 max-w-md mx-auto">
-            Get in touch with our team and let us know how we can help you.
+            {t("interestedDesc")}
           </p>
           <Link
             href="/#contact"
             className="inline-block bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 font-semibold px-8 py-3 rounded hover:bg-neutral-700 dark:hover:bg-neutral-200 transition-colors duration-200"
           >
-            Contact Us
+            {t("contactUs")}
           </Link>
         </section>
       </main>

@@ -1,0 +1,93 @@
+{
+  "nav": {
+    "about": "About",
+    "services": "Services",
+    "products": "Products",
+    "team": "Team",
+    "contact": "Contact"
+  },
+  "hero": {
+    "slogan": "Your Vision, Our Expertise",
+    "description": "High-Quality Software Development Services and Product for Your Business",
+    "cta": "Get Started"
+  },
+  "stats": {
+    "clients": "All Clients",
+    "countries": "Across Countries",
+    "products": "Products",
+    "talents": "Experienced Talents"
+  },
+  "services": {
+    "title": "Software Development Services",
+    "subtitle": "Empower your team's potential or craft your project anew, EG Tech stands as a premier software development ally with boundless expertise."
+  },
+  "techStack": {
+    "title": "Technologies We Use"
+  },
+  "products": {
+    "title": "Software Products",
+    "subtitle": "Elevate Your Business Growth with Our Exceptional Products!",
+    "viewDetails": "View Details →",
+    "product": "Product",
+    "of": "of",
+    "interested": "Interested in",
+    "contactUs": "Contact Us",
+    "interestedDesc": "Get in touch with our team and let us know how we can help you.",
+    "keyFeatures": "Key Features",
+    "techStack": "Tech Stack",
+    "screenshots": "Screenshots"
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "Who We Are",
+    "p1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. EliteTech DEV is a premier software development company founded with a vision to deliver world-class technology solutions.",
+    "p2": "We specialize in desktop applications, web systems, mobile apps, and IoT modules — serving clients across multiple countries with a dedicated team of experienced engineers.",
+    "p3": "Our commitment is to turn your ideas into reliable, scalable, and beautiful software products.",
+    "mission": "Mission",
+    "missionText": "To deliver high-quality, innovative software solutions that empower businesses to grow and succeed.",
+    "vision": "Vision",
+    "visionText": "To be the most trusted software development partner for businesses across Southeast Asia and beyond."
+  },
+  "whyUs": {
+    "title": "Why Choose Us",
+    "subtitle": "What sets us apart from the rest",
+    "item1Title": "Expert Team",
+    "item1Desc": "Our developers bring years of industry experience across diverse tech stacks.",
+    "item2Title": "On-Time Delivery",
+    "item2Desc": "We respect your timeline and deliver projects on schedule, every time.",
+    "item3Title": "24/7 Support",
+    "item3Desc": "Our support team is always available to assist you whenever you need help."
+  },
+  "team": {
+    "title": "Our Team",
+    "subtitle": "The people behind EliteTech DEV",
+    "viewProfile": "View Profile",
+    "skills": "Skills",
+    "backHome": "← Back to Home"
+  },
+  "testimonials": {
+    "title": "Testimonials",
+    "subtitle": "What our clients say about us"
+  },
+  "cta": {
+    "title": "Ready to Build Something Great?",
+    "subtitle": "Let's turn your idea into reality.",
+    "button": "Get In Touch"
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "whatsapp": "WhatsApp",
+    "instagram": "Instagram",
+    "gmail": "Gmail"
+  },
+  "footer": {
+    "copyright": "© Copyright 2023 Elite Tech"
+  },
+  "servicesPage": {
+    "whatWeOffer": "What We Offer",
+    "techStack": "Tech Stack",
+    "whyChooseUs": "Why Choose Us For This",
+    "startProject": "Start a Project",
+    "backHome": "← Back to Home"
+  }
+}

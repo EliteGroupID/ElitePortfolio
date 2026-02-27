@@ -1,9 +1,12 @@
-import Link from "next/link";
-import { productsList } from "../../src/constants";
+import { getTranslations } from "next-intl/server";
+import { productsList } from "../../../src/constants";
+import { Link } from "../../../src/i18n/navigation";
 
 const EGIcon = "/assets/eg-icon.png";
 
-export default function ProductsPage() {
+export default async function ProductsPage() {
+  const t = await getTranslations("products");
+
   return (
     <div className="min-h-screen bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white font-popin">
       {/* Header */}
@@ -13,15 +16,15 @@ export default function ProductsPage() {
           <span className="font-semibold tracking-wide text-sm">EliteTech DEV</span>
         </Link>
         <span className="text-gray-400 dark:text-neutral-600 mx-1">/</span>
-        <span className="text-neutral-500 dark:text-neutral-400 text-sm">Products</span>
+        <span className="text-neutral-500 dark:text-neutral-400 text-sm">{t("title")}</span>
       </div>
 
       <main className="max-w-6xl mx-auto px-6 py-20">
         <div className="text-center mb-14">
           <p className="text-neutral-500 dark:text-neutral-400 text-sm tracking-widest uppercase mb-2">What We Build</p>
-          <h1 className="text-4xl lg:text-5xl font-semibold">Our Products</h1>
+          <h1 className="text-4xl lg:text-5xl font-semibold">{t("title")}</h1>
           <p className="mt-4 text-neutral-500 dark:text-neutral-400 max-w-xl mx-auto">
-            Explore our flagship software products designed to solve real business challenges.
+            {t("subtitle")}
           </p>
         </div>
 
@@ -55,7 +58,7 @@ export default function ProductsPage() {
                   href={`/products/${product.slug}`}
                   className="inline-block bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 font-semibold text-sm px-5 py-2 rounded hover:bg-neutral-700 dark:hover:bg-neutral-200 transition-colors duration-200"
                 >
-                  View Details
+                  {t("viewDetails")}
                 </Link>
               </div>
             </div>
@@ -67,7 +70,7 @@ export default function ProductsPage() {
             href="/#contact"
             className="inline-block border border-gray-300 dark:border-neutral-400 text-neutral-600 dark:text-neutral-300 hover:border-neutral-900 dark:hover:border-white hover:text-neutral-900 dark:hover:text-white px-8 py-3 rounded transition-colors duration-200"
           >
-            Have a product idea? Contact Us
+            {t("contactUs")}
           </Link>
         </div>
       </main>

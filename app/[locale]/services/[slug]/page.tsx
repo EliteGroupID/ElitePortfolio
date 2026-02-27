@@ -1,21 +1,26 @@
-import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { servicesList, devIconURL } from "../../../src/constants";
+import { servicesList, devIconURL } from "../../../../src/constants";
+import { routing } from "../../../../src/i18n/routing";
+import { Link } from "../../../../src/i18n/navigation";
 
 const EGIcon = "/assets/eg-icon.png";
 
 export function generateStaticParams() {
-  return servicesList.map((s) => ({ slug: s.slug }));
+  return routing.locales.flatMap((locale) =>
+    servicesList.map((s) => ({ locale, slug: s.slug }))
+  );
 }
 
 export default async function ServiceDetailPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }) {
   const { slug } = await params;
   const service = servicesList.find((s) => s.slug === slug);
   if (!service) notFound();
+  const t = await getTranslations("servicesPage");
 
   return (
     <div className="min-h-screen bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white font-popin">
@@ -50,7 +55,7 @@ export default async function ServiceDetailPage({
       <main className="max-w-5xl mx-auto px-6 py-16 space-y-20">
         {/* What We Offer */}
         <section>
-          <h2 className="text-2xl font-semibold mb-8 text-center">What We Offer</h2>
+          <h2 className="text-2xl font-semibold mb-8 text-center">{t("whatWeOffer")}</h2>
           <ul className="space-y-4 max-w-2xl mx-auto">
             {service.whatWeOffer.map((item, idx) => (
               <li
@@ -66,7 +71,7 @@ export default async function ServiceDetailPage({
 
         {/* Tech Stack */}
         <section className="text-center">
-          <h2 className="text-2xl font-semibold mb-6">Tech Stack</h2>
+          <h2 className="text-2xl font-semibold mb-6">{t("techStack")}</h2>
           <div className="flex flex-wrap justify-center gap-3">
             {service.techStack.map((tech) => (
               <span
@@ -81,7 +86,7 @@ export default async function ServiceDetailPage({
 
         {/* Why Choose Us */}
         <section>
-          <h2 className="text-2xl font-semibold mb-8 text-center">Why Choose Us for {service.title}</h2>
+          <h2 className="text-2xl font-semibold mb-8 text-center">{t("whyChooseUs")}</h2>
           <div className="grid sm:grid-cols-3 gap-6">
             {service.whyUs.map((item, idx) => (
               <div
@@ -100,7 +105,7 @@ export default async function ServiceDetailPage({
 
         {/* CTA */}
         <section className="text-center bg-gray-50 dark:bg-neutral-800 rounded-2xl py-14 px-6 border border-gray-200 dark:border-neutral-700">
-          <h2 className="text-2xl font-semibold mb-3">Ready to Start a Project?</h2>
+          <h2 className="text-2xl font-semibold mb-3">Ready to {t("startProject")}?</h2>
           <p className="text-neutral-500 dark:text-neutral-400 mb-8 max-w-md mx-auto">
             Let&apos;s talk about your goals and build something great together.
           </p>
@@ -108,7 +113,7 @@ export default async function ServiceDetailPage({
             href="/#contact"
             className="inline-block bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 font-semibold px-8 py-3 rounded hover:bg-neutral-700 dark:hover:bg-neutral-200 transition-colors duration-200"
           >
-            Start a Project
+            {t("startProject")}
           </Link>
         </section>
       </main>
