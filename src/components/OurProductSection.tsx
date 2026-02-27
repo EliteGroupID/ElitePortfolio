@@ -1,7 +1,10 @@
+"use client";
+
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
-import Epos from "../assets/epos.png";
-import Evot from "../assets/evot.png";
+
+const Epos = "/assets/epos.png";
+const Evot = "/assets/evot.png";
 
 const OurProductSection = () => {
   return (

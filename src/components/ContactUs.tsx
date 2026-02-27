@@ -1,6 +1,8 @@
-import WA from "../assets/wa.png";
-import IG from "../assets/ig.png";
-import GMAIL from "../assets/gmail.webp";
+"use client";
+
+const WA = "/assets/wa.png";
+const IG = "/assets/ig.png";
+const GMAIL = "/assets/gmail.webp";
 
 const ContactUs = () => {
   const openWhatsAppWeb = () => {
