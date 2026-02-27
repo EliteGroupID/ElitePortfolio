@@ -1,3 +1,0 @@
-module.exports=[33290,a=>{"use strict";var b=a.i(7997);function c({children:a}){return(0,b.jsxs)("html",{lang:"en",children:[(0,b.jsxs)("head",{children:[(0,b.jsx)("link",{rel:"stylesheet",href:"https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"}),(0,b.jsx)("link",{rel:"stylesheet",href:"https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"})]}),(0,b.jsx)("body",{children:a})]})}a.s(["default",()=>c,"metadata",0,{title:"EliteTech Dev",description:"High-Quality Software Development Services and Product for Your Business",icons:{icon:"/eg.png"}}])}];
-
-//# sourceMappingURL=app_layout_tsx_271801d7._.js.map
