@@ -1,6 +1,7 @@
-import WA from "../assets/wa.png";
-import IG from "../assets/ig.png";
-import GMAIL from "../assets/gmail.webp";
+"use client";
+
+import { FaWhatsapp, FaInstagram } from "react-icons/fa";
+import { SiGmail } from "react-icons/si";
 
 const ContactUs = () => {
   const openWhatsAppWeb = () => {
@@ -22,20 +23,41 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="lg:px-32 bg-neutral-900 py-20 flex flex-col gap-y-4 items-center">
-      <h1>Get in Touch</h1>
-      <div className="flex flex-row w-full justify-center gap-x-10 lg:gap-x-32">
-        <button onClick={openWhatsAppWeb}>
-          <img src={WA} className="w-16" />
-          <p>WhatsApp</p>
+    <div className="lg:px-32 bg-gray-50 dark:bg-neutral-900 py-20 flex flex-col items-center">
+      <h1 className="text-3xl font-bold mb-2 text-neutral-900 dark:text-white">Get in Touch</h1>
+      <p className="text-neutral-500 dark:text-neutral-400">We&apos;d love to hear from you</p>
+      <div className="flex flex-row w-full justify-center gap-x-12 lg:gap-x-24 mt-8">
+        <button
+          onClick={openWhatsAppWeb}
+          className="flex flex-col items-center gap-3 group"
+        >
+          <div className="w-16 h-16 rounded-2xl bg-[#25D366] flex items-center justify-center group-hover:scale-110 transition-all duration-200 shadow-lg">
+            <FaWhatsapp className="text-white text-3xl" />
+          </div>
+          <p className="text-sm text-neutral-600 dark:text-neutral-300 group-hover:text-neutral-900 dark:group-hover:text-white transition-colors">WhatsApp</p>
         </button>
-        <button onClick={openInstagramApp}>
-          <img src={IG} className="w-16" />
-          <p>Instagram</p>
+
+        <button
+          onClick={openInstagramApp}
+          className="flex flex-col items-center gap-3 group"
+        >
+          <div
+            style={{ background: "linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045)" }}
+            className="w-16 h-16 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-all duration-200 shadow-lg"
+          >
+            <FaInstagram className="text-white text-3xl" />
+          </div>
+          <p className="text-sm text-neutral-600 dark:text-neutral-300 group-hover:text-neutral-900 dark:group-hover:text-white transition-colors">Instagram</p>
         </button>
-        <button onClick={openGmailApp}>
-          <img src={GMAIL} className="w-16" />
-          <p>Gmail</p>
+
+        <button
+          onClick={openGmailApp}
+          className="flex flex-col items-center gap-3 group"
+        >
+          <div className="w-16 h-16 rounded-2xl bg-[#EA4335] flex items-center justify-center group-hover:scale-110 transition-all duration-200 shadow-lg">
+            <SiGmail className="text-white text-3xl" />
+          </div>
+          <p className="text-sm text-neutral-600 dark:text-neutral-300 group-hover:text-neutral-900 dark:group-hover:text-white transition-colors">Gmail</p>
         </button>
       </div>
     </div>

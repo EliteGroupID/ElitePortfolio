@@ -1,0 +1,119 @@
+import { getTranslations } from "next-intl/server";
+import { notFound } from "next/navigation";
+import { servicesList, devIconURL } from "../../../../src/constants";
+import { routing } from "../../../../src/i18n/routing";
+import { Link } from "../../../../src/i18n/navigation";
+
+export function generateStaticParams() {
+  return routing.locales.flatMap((locale) =>
+    servicesList.map((s) => ({ locale, slug: s.slug }))
+  );
+}
+
+export default async function ServiceDetailPage({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}) {
+  const { slug } = await params;
+  const service = servicesList.find((s) => s.slug === slug);
+  if (!service) notFound();
+  const t = await getTranslations("servicesPage");
+
+  return (
+    <div className="min-h-screen bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white font-popin pt-20">
+      {/* Breadcrumb */}
+      <div className="border-b border-gray-200 dark:border-neutral-700 px-6 py-3 flex items-center gap-2 text-sm bg-white dark:bg-neutral-900">
+        <Link href="/" className="text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors">
+          Home
+        </Link>
+        <span className="text-gray-400 dark:text-neutral-600">/</span>
+        <Link href="/#services" className="text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors">
+          Services
+        </Link>
+        <span className="text-gray-400 dark:text-neutral-600">/</span>
+        <span className="text-neutral-900 dark:text-white font-medium">{service.title}</span>
+      </div>
+
+      {/* Hero */}
+      <section className="py-20 px-6 text-center bg-gray-50 dark:bg-neutral-800 border-b border-gray-200 dark:border-neutral-700">
+        <div className="flex justify-center mb-6">
+          <img
+            src={`${devIconURL}${service.icon}`}
+            alt={service.title}
+            className="w-20 h-20 object-contain"
+          />
+        </div>
+        <p className="text-neutral-500 dark:text-neutral-400 text-sm tracking-widest uppercase mb-2">Our Service</p>
+        <h1 className="text-4xl lg:text-6xl font-semibold mb-4">{service.title}</h1>
+        <p className="text-neutral-600 dark:text-neutral-300 text-lg max-w-2xl mx-auto">{service.description}</p>
+      </section>
+
+      <main className="max-w-5xl mx-auto px-6 py-16 space-y-20">
+        {/* What We Offer */}
+        <section>
+          <h2 className="text-2xl font-semibold mb-8 text-center">{t("whatWeOffer")}</h2>
+          <ul className="space-y-4 max-w-2xl mx-auto">
+            {service.whatWeOffer.map((item, idx) => (
+              <li
+                key={idx}
+                className="flex items-start gap-4 bg-gray-50 dark:bg-neutral-800 rounded-xl p-5 border border-gray-200 dark:border-neutral-700"
+              >
+                <span className="text-green-500 dark:text-green-400 mt-0.5">✓</span>
+                <span className="text-neutral-600 dark:text-neutral-300">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        {/* Tech Stack */}
+        <section className="text-center">
+          <h2 className="text-2xl font-semibold mb-6">{t("techStack")}</h2>
+          <div className="flex flex-wrap justify-center gap-3">
+            {service.techStack.map((tech) => (
+              <span
+                key={tech}
+                className="bg-gray-100 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-200 px-4 py-2 rounded-full text-sm font-medium"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        </section>
+
+        {/* Why Choose Us */}
+        <section>
+          <h2 className="text-2xl font-semibold mb-8 text-center">{t("whyChooseUs")}</h2>
+          <div className="grid sm:grid-cols-3 gap-6">
+            {service.whyUs.map((item, idx) => (
+              <div
+                key={idx}
+                className="bg-gray-50 dark:bg-neutral-800 rounded-xl p-6 border border-gray-200 dark:border-neutral-700 text-center hover:-translate-y-1 transition-transform duration-200"
+              >
+                <div className="w-12 h-12 rounded-full bg-neutral-900/10 dark:bg-white/10 flex items-center justify-center mx-auto mb-4 text-xl">
+                  {idx === 0 ? "🏆" : idx === 1 ? "⚡" : "🛡️"}
+                </div>
+                <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
+                <p className="text-neutral-500 dark:text-neutral-400 text-sm">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="text-center bg-gray-50 dark:bg-neutral-800 rounded-2xl py-14 px-6 border border-gray-200 dark:border-neutral-700">
+          <h2 className="text-2xl font-semibold mb-3">Ready to {t("startProject")}?</h2>
+          <p className="text-neutral-500 dark:text-neutral-400 mb-8 max-w-md mx-auto">
+            Let&apos;s talk about your goals and build something great together.
+          </p>
+          <Link
+            href="/#contact"
+            className="inline-block bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 font-semibold px-8 py-3 rounded hover:bg-neutral-700 dark:hover:bg-neutral-200 transition-colors duration-200"
+          >
+            {t("startProject")}
+          </Link>
+        </section>
+      </main>
+    </div>
+  );
+}

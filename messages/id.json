@@ -1,0 +1,93 @@
+{
+  "nav": {
+    "about": "Tentang",
+    "services": "Layanan",
+    "products": "Produk",
+    "team": "Tim",
+    "contact": "Kontak"
+  },
+  "hero": {
+    "slogan": "Visi Anda, Keahlian Kami",
+    "description": "Layanan dan Produk Pengembangan Perangkat Lunak Berkualitas Tinggi untuk Bisnis Anda",
+    "cta": "Mulai Sekarang"
+  },
+  "stats": {
+    "clients": "Total Klien",
+    "countries": "Lintas Negara",
+    "products": "Produk",
+    "talents": "Talenta Berpengalaman"
+  },
+  "services": {
+    "title": "Layanan Pengembangan Perangkat Lunak",
+    "subtitle": "Tingkatkan potensi tim Anda atau bangun proyek baru bersama EG Tech, mitra pengembangan perangkat lunak terpercaya dengan keahlian tanpa batas."
+  },
+  "techStack": {
+    "title": "Teknologi yang Kami Gunakan"
+  },
+  "products": {
+    "title": "Produk Perangkat Lunak",
+    "subtitle": "Tingkatkan Pertumbuhan Bisnis Anda dengan Produk Unggulan Kami!",
+    "viewDetails": "Lihat Detail →",
+    "product": "Produk",
+    "of": "dari",
+    "interested": "Tertarik dengan",
+    "contactUs": "Hubungi Kami",
+    "interestedDesc": "Hubungi tim kami dan beritahu bagaimana kami bisa membantu Anda.",
+    "keyFeatures": "Fitur Utama",
+    "techStack": "Teknologi",
+    "screenshots": "Tangkapan Layar"
+  },
+  "about": {
+    "title": "Tentang Kami",
+    "subtitle": "Siapa Kami",
+    "p1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. EliteTech DEV adalah perusahaan pengembangan perangkat lunak terkemuka yang didirikan dengan visi memberikan solusi teknologi kelas dunia.",
+    "p2": "Kami mengkhususkan diri dalam aplikasi desktop, sistem web, aplikasi mobile, dan modul IoT — melayani klien di berbagai negara dengan tim insinyur berpengalaman.",
+    "p3": "Komitmen kami adalah mengubah ide Anda menjadi produk perangkat lunak yang andal, skalabel, dan indah.",
+    "mission": "Misi",
+    "missionText": "Memberikan solusi perangkat lunak inovatif berkualitas tinggi yang memberdayakan bisnis untuk tumbuh dan sukses.",
+    "vision": "Visi",
+    "visionText": "Menjadi mitra pengembangan perangkat lunak paling terpercaya bagi bisnis di Asia Tenggara dan sekitarnya."
+  },
+  "whyUs": {
+    "title": "Mengapa Memilih Kami",
+    "subtitle": "Yang membedakan kami dari yang lain",
+    "item1Title": "Tim Ahli",
+    "item1Desc": "Pengembang kami membawa pengalaman industri bertahun-tahun di berbagai teknologi.",
+    "item2Title": "Tepat Waktu",
+    "item2Desc": "Kami menghormati jadwal Anda dan menyelesaikan proyek sesuai tenggat waktu.",
+    "item3Title": "Dukungan 24/7",
+    "item3Desc": "Tim dukungan kami selalu siap membantu kapan pun Anda membutuhkan."
+  },
+  "team": {
+    "title": "Tim Kami",
+    "subtitle": "Orang-orang di balik EliteTech DEV",
+    "viewProfile": "Lihat Profil",
+    "skills": "Keahlian",
+    "backHome": "← Kembali ke Beranda"
+  },
+  "testimonials": {
+    "title": "Testimoni",
+    "subtitle": "Apa kata klien kami"
+  },
+  "cta": {
+    "title": "Siap Membangun Sesuatu yang Hebat?",
+    "subtitle": "Mari wujudkan ide Anda menjadi kenyataan.",
+    "button": "Hubungi Kami"
+  },
+  "contact": {
+    "title": "Hubungi Kami",
+    "whatsapp": "WhatsApp",
+    "instagram": "Instagram",
+    "gmail": "Gmail"
+  },
+  "footer": {
+    "copyright": "© Hak Cipta 2023 Elite Tech"
+  },
+  "servicesPage": {
+    "whatWeOffer": "Yang Kami Tawarkan",
+    "techStack": "Teknologi",
+    "whyChooseUs": "Mengapa Memilih Kami",
+    "startProject": "Mulai Proyek",
+    "backHome": "← Kembali ke Beranda"
+  }
+}
