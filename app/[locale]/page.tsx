@@ -25,7 +25,6 @@ const techStack = [
 ];
 import Footer from "../../src/components/Footer";
 import ContactUs from "../../src/components/ContactUs";
-import Navbar from "../../src/components/Navbar";
 import AboutUs from "../../src/components/AboutUs";
 import WhyChooseUs from "../../src/components/WhyChooseUs";
 import OurTeam from "../../src/components/OurTeam";
@@ -62,8 +61,6 @@ const App = () => {
 
   return (
     <div>
-      <Navbar />
-
       {/* Hero */}
       <section
         id="hero"

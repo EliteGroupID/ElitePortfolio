@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import { teamList } from "../../../../src/constants";
 import { routing } from "../../../../src/i18n/routing";
 import { Link } from "../../../../src/i18n/navigation";
-import Navbar from "../../../../src/components/Navbar";
 
 export function generateStaticParams() {
   return routing.locales.flatMap((locale) =>
@@ -22,10 +21,9 @@ export default async function TeamMemberPage({
   const t = await getTranslations("team");
 
   return (
-    <div className="min-h-screen bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white font-popin">
-      <Navbar />
+    <div className="min-h-screen bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white font-popin pt-20">
       {/* Breadcrumb */}
-      <div className="pt-16 border-b border-gray-200 dark:border-neutral-700 px-6 py-3 flex items-center gap-2 text-sm bg-white dark:bg-neutral-900">
+      <div className="border-b border-gray-200 dark:border-neutral-700 px-6 py-3 flex items-center gap-2 text-sm bg-white dark:bg-neutral-900">
         <Link href="/" className="text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors">
           Home
         </Link>

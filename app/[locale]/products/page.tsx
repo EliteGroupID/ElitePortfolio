@@ -8,17 +8,7 @@ export default async function ProductsPage() {
   const t = await getTranslations("products");
 
   return (
-    <div className="min-h-screen bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white font-popin">
-      {/* Header */}
-      <div className="bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md border-b border-gray-200 dark:border-neutral-700 px-6 py-4 flex items-center gap-3">
-        <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-          <img src={EGIcon} className="w-8" alt="EG Icon" />
-          <span className="font-semibold tracking-wide text-sm">EliteTech DEV</span>
-        </Link>
-        <span className="text-gray-400 dark:text-neutral-600 mx-1">/</span>
-        <span className="text-neutral-500 dark:text-neutral-400 text-sm">{t("title")}</span>
-      </div>
-
+    <div className="min-h-screen bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white font-popin pt-20">
       <main className="max-w-6xl mx-auto px-6 py-20">
         <div className="text-center mb-14">
           <p className="text-neutral-500 dark:text-neutral-400 text-sm tracking-widest uppercase mb-2">What We Build</p>
