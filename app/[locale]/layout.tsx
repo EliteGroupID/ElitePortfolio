@@ -25,20 +25,20 @@ export default async function LocaleLayout({
   const messages = await getMessages();
   return (
     <html lang={locale} suppressHydrationWarning>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `(function() {
+            const saved = localStorage.getItem("theme");
+            const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            if (saved === "dark" || (!saved && prefersDark)) {
+              document.documentElement.classList.add("dark");
+            } else {
+              document.documentElement.classList.remove("dark");
+            }
+          })();`,
+        }}
+      />
       <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function() {
-              const saved = localStorage.getItem("theme");
-              const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-              if (saved === "dark" || (!saved && prefersDark)) {
-                document.documentElement.classList.add("dark");
-              } else {
-                document.documentElement.classList.remove("dark");
-              }
-            })();`,
-          }}
-        />
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
