@@ -1,58 +1,47 @@
-const testimonials = [
-  {
-    quote:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Working with EliteTech DEV was a game-changer for our business. Their attention to detail and commitment to quality is truly unmatched.",
-    name: "Robert Chen",
-    company: "TechVentures Inc.",
-  },
-  {
-    quote:
-      "Excepteur sint occaecat cupidatat non proident. The team delivered our project on time and exceeded our expectations at every stage of development. Highly professional.",
-    name: "Sarah Williams",
-    company: "DigitalFirst Co.",
-  },
-  {
-    quote:
-      "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Highly recommend EliteTech for any software project — they just get it done.",
-    name: "David Park",
-    company: "Innovate Solutions",
-  },
-];
+"use client";
 
-const Testimonials = () => {
+import { motion } from "motion/react";
+import { Quote } from "lucide-react";
+import { useTranslations } from "next-intl";
+
+export function Testimonials() {
+  const t = useTranslations("testimonials");
+
   return (
-    <section className="bg-gray-50 dark:bg-neutral-900 py-24 px-6 lg:px-20 xl:px-32 font-popin">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-14">
-          <p className="text-neutral-500 dark:text-neutral-400 text-sm tracking-widest uppercase mb-2">
-            What Clients Say
-          </p>
-          <h2 className="text-3xl lg:text-4xl font-semibold text-neutral-900 dark:text-white">
-            Testimonials
-          </h2>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {testimonials.map((t) => (
-            <div
-              key={t.name}
-              className="bg-white dark:bg-neutral-800 border border-gray-200 dark:border-neutral-700 rounded-xl p-8 flex flex-col shadow-sm"
-            >
-              <div className="text-yellow-400 text-xl mb-4 tracking-wider">
-                ★★★★★
+    <section className="py-24 bg-[#050505] text-white overflow-hidden border-y border-white/5">
+      <div className="container mx-auto px-6 relative">
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8 }}
+          >
+            <Quote className="w-12 h-12 md:w-16 md:h-16 text-neutral-800 mx-auto mb-10" />
+            <h3 className="text-2xl md:text-4xl lg:text-5xl font-light tracking-tight leading-[1.3] mb-14">
+              &ldquo;{t("quote")}&rdquo;
+            </h3>
+
+            <div className="flex flex-col items-center">
+              <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden mb-5 border border-white/20 p-1">
+                <div className="w-full h-full rounded-full overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1605464705085-b7234de7a4dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBjb25maWRlbnQlMjB3b21hbiUyMHBvcnRyYWl0JTIwYmxhY2slMjBhbmQlMjB3aGl0ZXxlbnwxfHx8fDE3NzM5NTk1MDl8MA&ixlib=rb-4.1.0&q=80&w=1080"
+                    alt={t("personName")}
+                    className="w-full h-full object-cover grayscale"
+                  />
+                </div>
               </div>
-              <p className="text-neutral-600 dark:text-neutral-300 leading-relaxed flex-1 mb-6 italic">
-                &ldquo;{t.quote}&rdquo;
-              </p>
-              <div>
-                <p className="text-neutral-900 dark:text-white font-semibold">{t.name}</p>
-                <p className="text-neutral-500 dark:text-neutral-400 text-sm">{t.company}</p>
+              <div className="text-lg font-medium tracking-tight">{t("personName")}</div>
+              <div className="text-sm text-neutral-500 uppercase tracking-widest mt-1 font-medium">
+                {t("personTitle")}
               </div>
             </div>
-          ))}
+          </motion.div>
         </div>
       </div>
     </section>
   );
-};
+}
 
 export default Testimonials;

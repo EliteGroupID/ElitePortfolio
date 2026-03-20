@@ -2,27 +2,133 @@
   "nav": {
     "about": "Tentang",
     "services": "Layanan",
+    "work": "Portofolio",
+    "contact": "Mulai Proyek",
     "products": "Produk",
-    "team": "Tim",
-    "contact": "Kontak"
+    "team": "Tim"
   },
   "hero": {
-    "slogan": "Visi Anda, Keahlian Kami",
-    "description": "Layanan dan Produk Pengembangan Perangkat Lunak Berkualitas Tinggi untuk Bisnis Anda",
-    "cta": "Mulai Sekarang"
+    "badge": "Bermitra dengan EliteTech Dev",
+    "heading1": "Engineering Digital",
+    "heading2": "Excellence.",
+    "subheading": "Kami membangun aplikasi web berperforma tinggi dan platform enterprise untuk merek-merek ambisius. Kode sempurna, desain luar biasa, hasil terukur.",
+    "cta": "Bekerja Bersama Kami",
+    "scroll": "Gulir untuk menemukan"
   },
-  "stats": {
-    "clients": "Total Klien",
-    "countries": "Lintas Negara",
-    "products": "Produk",
-    "talents": "Talenta Berpengalaman"
+  "trusted": {
+    "tagline": "Dipercaya oleh merek-merek visioner di seluruh dunia"
   },
   "services": {
-    "title": "Layanan Pengembangan Perangkat Lunak",
-    "subtitle": "Tingkatkan potensi tim Anda atau bangun proyek baru bersama EG Tech, mitra pengembangan perangkat lunak terpercaya dengan keahlian tanpa batas."
+    "tagline": "Keahlian Kami",
+    "heading1": "Semua yang Anda butuhkan untuk",
+    "heading2": "menskalakan",
+    "heading3": " platform Anda.",
+    "item1Title": "Pengembangan Web",
+    "item1Desc": "Merancang aplikasi web yang aman dan berperforma tinggi sesuai dengan logika bisnis Anda.",
+    "item2Title": "Desain UI/UX",
+    "item2Desc": "Mendesain antarmuka yang intuitif dan berfokus pada konversi untuk meningkatkan merek Anda.",
+    "item3Title": "Optimasi Performa",
+    "item3Desc": "Mengaudit dan melakukan refactoring platform yang ada untuk kecepatan, SEO, dan efisiensi maksimal.",
+    "item4Title": "Integrasi Sistem",
+    "item4Desc": "Menghubungkan API pihak ketiga dan microservices ke dalam ekosistem digital yang terpadu.",
+    "item5Title": "IoT & Embedded Systems",
+    "item5Desc": "Membangun perangkat cerdas dan jaringan sensor yang menghubungkan dunia fisik dengan kecerdasan digital secara real-time.",
+    "viewAll": "Lihat Semua Layanan"
   },
-  "techStack": {
-    "title": "Teknologi yang Kami Gunakan"
+  "works": {
+    "tagline": "Karya Pilihan",
+    "heading1": "Hasil terbukti untuk perusahaan",
+    "heading2": "ambisius",
+    "heading3": ".",
+    "viewAll": "Lihat Semua Kasus",
+    "viewCase": "Lihat Studi Kasus",
+    "project1Title": "Platform FinFlow",
+    "project1Category": "Fintech Enterprise",
+    "project1Desc": "Memproses lebih dari $50 juta dalam transaksi frekuensi tinggi yang aman dengan arsitektur backend yang kokoh.",
+    "project2Title": "Nova OS",
+    "project2Category": "Aplikasi SaaS",
+    "project2Desc": "Desain dashboard interaktif yang meningkatkan retensi pengguna aktif sebesar 42%.",
+    "project3Title": "Lumina Commerce",
+    "project3Category": "Sistem E-Commerce",
+    "project3Desc": "Build headless commerce yang mengoptimalkan waktu muat global dan meningkatkan tingkat konversi sebesar 28%."
+  },
+  "process": {
+    "tagline": "Cara Kami Bekerja",
+    "heading1": "Kerangka kerja terbukti untuk",
+    "heading2": "eksekusi sempurna",
+    "heading3": ".",
+    "step1Title": "Penemuan",
+    "step1Desc": "Kami mendalami tujuan bisnis, kendala teknis, dan target audiens Anda untuk mendefinisikan peta jalan engineering yang tepat.",
+    "step2Title": "Desain",
+    "step2Desc": "Membuat sistem desain yang skalabel dan prototipe interaktif untuk selaras penuh pada arah struktural dan visual.",
+    "step3Title": "Pengembangan",
+    "step3Desc": "Menulis kode yang bersih dan mudah dipelihara menggunakan framework modern untuk mewujudkan arsitektur yang disetujui.",
+    "step4Title": "Peluncuran",
+    "step4Desc": "Pengujian QA yang ketat, audit performa, dan deployment yang mulus, diikuti dukungan teknis berkelanjutan."
+  },
+  "whyUs": {
+    "tagline": "Mengapa Memilih Kami",
+    "heading1": "Kami tidak hanya membangun website. Kami mengengineering",
+    "heading2": "pertumbuhan",
+    "heading3": ".",
+    "item1Title": "Kode Bersih",
+    "item1Desc": "Kami mematuhi prinsip rekayasa perangkat lunak modern, memastikan kode Anda skalabel, mudah dipelihara, dan bebas bug.",
+    "item2Title": "Sistem Skalabel",
+    "item2Desc": "Arsitektur kami dirancang untuk tumbuh bersama bisnis Anda, menangani traffic dan data yang semakin kompleks.",
+    "item3Title": "Pengiriman Cepat",
+    "item3Desc": "Kami menggunakan metodologi agile untuk men-deploy fitur kritis dengan cepat tanpa mengorbankan kualitas.",
+    "item4Title": "Komunikasi Kuat",
+    "item4Desc": "Nikmati pembaruan yang transparan dan proaktif sepanjang siklus pengembangan sehingga Anda selalu terinformasi penuh."
+  },
+  "about": {
+    "tagline": "Siapa Kami",
+    "heading1": "Mitra teknologi",
+    "heading2": "terpercaya Anda.",
+    "description": "EliteTech Dev adalah agensi pengembangan web premium yang berdedikasi untuk merancang solusi digital yang kokoh dan skalabel. Kami menjembatani kesenjangan antara kebutuhan teknis yang kompleks dan pengalaman pengguna yang intuitif.",
+    "stat1Value": "10+",
+    "stat1Label": "Tahun Pengalaman",
+    "stat2Value": "200+",
+    "stat2Label": "Platform Terkirim",
+    "stat3Value": "99%",
+    "stat3Label": "Retensi Klien"
+  },
+  "testimonials": {
+    "quote": "EliteTech Dev tidak hanya membangun platform kami; mereka secara fundamental meningkatkan strategi teknis kami. Kualitas kode mereka luar biasa, dan kemampuan mereka menerjemahkan kebutuhan kompleks menjadi fitur yang mulus memberi kami keunggulan kompetitif yang besar.",
+    "personName": "Marcus Reynolds",
+    "personTitle": "CTO, Platform FinFlow"
+  },
+  "cta": {
+    "heading1": "Siap menskalakan",
+    "heading2": "kehadiran digital Anda?",
+    "subtitle": "Bermitra dengan EliteTech Dev untuk membangun perangkat lunak berperforma tinggi yang mendorong nilai bisnis nyata dan terukur.",
+    "button": "Mulai Proyek Anda"
+  },
+  "footer": {
+    "tagline": "Merancang produk digital berperforma tinggi dan sistem skalabel untuk perusahaan modern.",
+    "navLabel": "Navigasi",
+    "navHome": "Beranda",
+    "navAbout": "Tentang Kami",
+    "navServices": "Layanan",
+    "navWork": "Portofolio",
+    "navProducts": "Produk",
+    "navContact": "Kontak",
+    "navEstimate": "Estimasi Harga",
+    "connectLabel": "Terhubung",
+    "copyright": "© {year} EliteTech Dev. Hak cipta dilindungi.",
+    "privacy": "Kebijakan Privasi",
+    "terms": "Syarat Layanan"
+  },
+  "worksPage": {
+    "label": "Portofolio Lengkap",
+    "title1": "Semua",
+    "title2": "Karya Kami.",
+    "subtitle": "Setiap proyek adalah kisah ambisi, presisi, dan hasil nyata. Inilah yang telah kami bangun.",
+    "filterAll": "Semua",
+    "viewProject": "Lihat Proyek",
+    "backHome": "Kembali ke Beranda",
+    "ctaTitle1": "Siap membangun",
+    "ctaTitle2": "proyek besar Anda?",
+    "ctaBtn": "Mulai Proyek"
   },
   "products": {
     "title": "Produk Perangkat Lunak",
@@ -37,27 +143,6 @@
     "techStack": "Teknologi",
     "screenshots": "Tangkapan Layar"
   },
-  "about": {
-    "title": "Tentang Kami",
-    "subtitle": "Siapa Kami",
-    "p1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. EliteTech DEV adalah perusahaan pengembangan perangkat lunak terkemuka yang didirikan dengan visi memberikan solusi teknologi kelas dunia.",
-    "p2": "Kami mengkhususkan diri dalam aplikasi desktop, sistem web, aplikasi mobile, dan modul IoT — melayani klien di berbagai negara dengan tim insinyur berpengalaman.",
-    "p3": "Komitmen kami adalah mengubah ide Anda menjadi produk perangkat lunak yang andal, skalabel, dan indah.",
-    "mission": "Misi",
-    "missionText": "Memberikan solusi perangkat lunak inovatif berkualitas tinggi yang memberdayakan bisnis untuk tumbuh dan sukses.",
-    "vision": "Visi",
-    "visionText": "Menjadi mitra pengembangan perangkat lunak paling terpercaya bagi bisnis di Asia Tenggara dan sekitarnya."
-  },
-  "whyUs": {
-    "title": "Mengapa Memilih Kami",
-    "subtitle": "Yang membedakan kami dari yang lain",
-    "item1Title": "Tim Ahli",
-    "item1Desc": "Pengembang kami membawa pengalaman industri bertahun-tahun di berbagai teknologi.",
-    "item2Title": "Tepat Waktu",
-    "item2Desc": "Kami menghormati jadwal Anda dan menyelesaikan proyek sesuai tenggat waktu.",
-    "item3Title": "Dukungan 24/7",
-    "item3Desc": "Tim dukungan kami selalu siap membantu kapan pun Anda membutuhkan."
-  },
   "team": {
     "title": "Tim Kami",
     "subtitle": "Orang-orang di balik EliteTech DEV",
@@ -65,29 +150,79 @@
     "skills": "Keahlian",
     "backHome": "← Kembali ke Beranda"
   },
-  "testimonials": {
-    "title": "Testimoni",
-    "subtitle": "Apa kata klien kami"
-  },
-  "cta": {
-    "title": "Siap Membangun Sesuatu yang Hebat?",
-    "subtitle": "Mari wujudkan ide Anda menjadi kenyataan.",
-    "button": "Hubungi Kami"
-  },
-  "contact": {
-    "title": "Hubungi Kami",
-    "whatsapp": "WhatsApp",
-    "instagram": "Instagram",
-    "gmail": "Gmail"
-  },
-  "footer": {
-    "copyright": "© Hak Cipta 2023 Elite Tech"
-  },
   "servicesPage": {
     "whatWeOffer": "Yang Kami Tawarkan",
     "techStack": "Teknologi",
     "whyChooseUs": "Mengapa Memilih Kami",
     "startProject": "Mulai Proyek",
     "backHome": "← Kembali ke Beranda"
+  },
+  "productsSection": {
+    "tagline": "Produk Kami",
+    "heading1": "Software &",
+    "heading2": "hardware",
+    "heading3": " yang kami bangun.",
+    "viewAll": "Lihat Semua Produk",
+    "filterAll": "Semua",
+    "filterSoftware": "Software",
+    "filterIoT": "IoT"
+  },
+  "productsPage": {
+    "label": "Produk Kami",
+    "title1": "Semua",
+    "title2": "Produk.",
+    "subtitle": "Dari software enterprise hingga perangkat IoT cerdas — produk yang dibangun sendiri dan telah teruji di lapangan.",
+    "backHome": "Kembali ke Beranda",
+    "filterAll": "Semua",
+    "viewProduct": "Lihat Produk",
+    "productCount": "Produk",
+    "ctaTitle1": "Butuh solusi",
+    "ctaTitle2": "yang custom?",
+    "ctaBtn": "Hubungi Kami"
+  },
+  "servicesListingPage": {
+    "label": "Layanan Kami",
+    "title1": "Yang Kami",
+    "title2": "Bangun.",
+    "subtitle": "Empat disiplin terfokus, satu tujuan — membantu bisnis Anda berkembang melalui keunggulan rekayasa.",
+    "backHome": "Kembali ke Beranda",
+    "learnMore": "Pelajari Lebih",
+    "item1LongDesc": "Kami merancang dan membangun aplikasi web berperforma tinggi yang skalabel, dari platform enterprise kompleks hingga produk consumer-facing.",
+    "item2LongDesc": "Desain yang baik adalah penggerak pendapatan. Kami merancang antarmuka yang membimbing pengguna menuju tujuan mereka dengan jelas dan meminimalkan hambatan.",
+    "item3LongDesc": "Software yang lambat merugikan bisnis Anda. Kami melakukan audit performa mendalam dan menerapkan perbaikan terarah yang memberikan peningkatan kecepatan yang terukur.",
+    "item4LongDesc": "Bisnis modern berjalan di atas tumpukan alat. Kami membangun lapisan integrasi yang menghubungkan semuanya, menghilangkan pekerjaan manual dan menciptakan sumber kebenaran tunggal.",
+    "item5LongDesc": "Dari sensor node ESP32 hingga gateway Raspberry Pi, kami membangun solusi IoT lengkap — firmware kustom, konektivitas cloud, dan dashboard real-time — disesuaikan dengan lingkungan fisik Anda.",
+    "ctaTitle1": "Tidak yakin layanan",
+    "ctaTitle2": "mana yang Anda butuhkan?",
+    "ctaBtn": "Mari Bicara"
+  },
+  "contactPage": {
+    "label": "Hubungi Kami",
+    "title1": "Mulai",
+    "title2": "Proyek.",
+    "subtitle": "Ceritakan proyek Anda dan kami akan menghubungi Anda dalam 24 jam.",
+    "backHome": "Kembali ke Beranda",
+    "infoEmailLabel": "Email Kami",
+    "infoResponseLabel": "Waktu Respons",
+    "infoResponseValue": "Dalam 24 jam",
+    "infoLocationLabel": "Berbasis Di",
+    "infoFollowLabel": "Ikuti Kami",
+    "fieldName": "Nama Lengkap",
+    "fieldNamePlaceholder": "John Doe",
+    "fieldEmail": "Alamat Email",
+    "fieldEmailPlaceholder": "john@perusahaan.com",
+    "fieldCompany": "Perusahaan (Opsional)",
+    "fieldCompanyPlaceholder": "Nama perusahaan Anda",
+    "fieldService": "Layanan yang Dibutuhkan",
+    "fieldServicePlaceholder": "Pilih layanan",
+    "fieldBudget": "Kisaran Anggaran",
+    "fieldBudgetPlaceholder": "Pilih anggaran",
+    "fieldMessage": "Detail Proyek",
+    "fieldMessagePlaceholder": "Ceritakan proyek, tujuan, dan jadwal Anda...",
+    "requiredNote": "Kolom wajib diisi",
+    "submitBtn": "Kirim Pesan",
+    "submitting": "Mengirim...",
+    "successTitle": "Pesan Terkirim!",
+    "successDesc": "Terima kasih telah menghubungi kami. Kami telah menerima pesan Anda dan akan membalas dalam 24 jam."
   }
 }

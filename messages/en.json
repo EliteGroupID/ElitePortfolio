@@ -2,27 +2,133 @@
   "nav": {
     "about": "About",
     "services": "Services",
+    "work": "Work",
+    "contact": "Start Project",
     "products": "Products",
-    "team": "Team",
-    "contact": "Contact"
+    "team": "Team"
   },
   "hero": {
-    "slogan": "Your Vision, Our Expertise",
-    "description": "High-Quality Software Development Services and Product for Your Business",
-    "cta": "Get Started"
+    "badge": "Partner with EliteTech Dev",
+    "heading1": "Engineering Digital",
+    "heading2": "Excellence.",
+    "subheading": "We build high-performance web applications and enterprise platforms for ambitious brands. Flawless code, exceptional design, measurable results.",
+    "cta": "Work With Us",
+    "scroll": "Scroll to discover"
   },
-  "stats": {
-    "clients": "All Clients",
-    "countries": "Across Countries",
-    "products": "Products",
-    "talents": "Experienced Talents"
+  "trusted": {
+    "tagline": "Trusted by visionary brands worldwide"
   },
   "services": {
-    "title": "Software Development Services",
-    "subtitle": "Empower your team's potential or craft your project anew, EG Tech stands as a premier software development ally with boundless expertise."
+    "tagline": "Our Expertise",
+    "heading1": "Everything you need to",
+    "heading2": "scale",
+    "heading3": " your platform.",
+    "item1Title": "Web Development",
+    "item1Desc": "Architecting secure, high-performance web applications tailored to your exact business logic.",
+    "item2Title": "UI/UX Design",
+    "item2Desc": "Designing intuitive, conversion-focused interfaces that delight users and elevate your brand.",
+    "item3Title": "Performance Optimization",
+    "item3Desc": "Auditing and refactoring existing platforms for maximum speed, SEO, and efficiency.",
+    "item4Title": "System Integration",
+    "item4Desc": "Seamlessly connecting third-party APIs and microservices into a unified digital ecosystem.",
+    "item5Title": "IoT & Embedded Systems",
+    "item5Desc": "Building smart devices and sensor networks that connect the physical world to real-time digital intelligence.",
+    "viewAll": "View All Services"
   },
-  "techStack": {
-    "title": "Technologies We Use"
+  "works": {
+    "tagline": "Selected Works",
+    "heading1": "Proven results for",
+    "heading2": "ambitious",
+    "heading3": " companies.",
+    "viewAll": "View All Cases",
+    "viewCase": "View Case Study",
+    "project1Title": "FinFlow Platform",
+    "project1Category": "Enterprise Fintech",
+    "project1Desc": "Processed over $50M in secure, high-frequency transactions with robust backend architecture.",
+    "project2Title": "Nova OS",
+    "project2Category": "SaaS Application",
+    "project2Desc": "A highly interactive dashboard design that increased active user retention by 42%.",
+    "project3Title": "Lumina Commerce",
+    "project3Category": "E-Commerce System",
+    "project3Desc": "A headless commerce build optimizing global load times and boosting conversion rates by 28%."
+  },
+  "process": {
+    "tagline": "How We Work",
+    "heading1": "A proven framework for",
+    "heading2": "flawless execution",
+    "heading3": ".",
+    "step1Title": "Discovery",
+    "step1Desc": "We dive deep into your business goals, technical constraints, and target audience to define a precise engineering roadmap.",
+    "step2Title": "Design",
+    "step2Desc": "Creating scalable design systems and interactive prototypes to align completely on the structural and visual direction.",
+    "step3Title": "Development",
+    "step3Desc": "Writing clean, maintainable code using modern frameworks and best practices to bring the approved architecture to life.",
+    "step4Title": "Launch",
+    "step4Desc": "Rigorous QA testing, performance auditing, and seamless deployment, followed by proactive ongoing technical support."
+  },
+  "whyUs": {
+    "tagline": "Why Choose Us",
+    "heading1": "We don't just build websites. We engineer",
+    "heading2": "growth",
+    "heading3": ".",
+    "item1Title": "Clean Code",
+    "item1Desc": "We strictly adhere to modern software engineering principles, ensuring your codebase is scalable, maintainable, and bug-free.",
+    "item2Title": "Scalable Systems",
+    "item2Desc": "Our architectures are thoughtfully designed to grow with your business, handling increased traffic and complex data effortlessly.",
+    "item3Title": "Fast Delivery",
+    "item3Desc": "We utilize agile methodologies to deploy critical features rapidly, ensuring quick time-to-market without compromising quality.",
+    "item4Title": "Strong Communication",
+    "item4Desc": "Enjoy transparent, proactive updates throughout the entire development lifecycle so you are always fully in the loop."
+  },
+  "about": {
+    "tagline": "Who We Are",
+    "heading1": "Your reliable technology",
+    "heading2": "partner.",
+    "description": "EliteTech Dev is a premium web development agency dedicated to engineering robust, scalable digital solutions. We bridge the gap between complex technical requirements and intuitive user experiences, delivering software that empowers your business to scale with confidence.",
+    "stat1Value": "10+",
+    "stat1Label": "Years Exp",
+    "stat2Value": "200+",
+    "stat2Label": "Platforms Shipped",
+    "stat3Value": "99%",
+    "stat3Label": "Client Retention"
+  },
+  "testimonials": {
+    "quote": "EliteTech Dev didn't just build our platform; they fundamentally improved our technical strategy. Their code quality is exceptional, and their ability to translate complex requirements into seamless features gave us a massive competitive advantage.",
+    "personName": "Marcus Reynolds",
+    "personTitle": "CTO, FinFlow Platform"
+  },
+  "cta": {
+    "heading1": "Ready to scale your",
+    "heading2": "digital presence?",
+    "subtitle": "Partner with EliteTech Dev to build high-performance software that drives real, measurable business value.",
+    "button": "Start Your Project"
+  },
+  "footer": {
+    "tagline": "Engineering high-performance digital products and scalable systems for modern enterprises.",
+    "navLabel": "Navigation",
+    "navHome": "Home",
+    "navAbout": "About Us",
+    "navServices": "Services",
+    "navWork": "Portfolio",
+    "navProducts": "Products",
+    "navContact": "Contact",
+    "navEstimate": "Get Estimate",
+    "connectLabel": "Connect",
+    "copyright": "© {year} EliteTech Dev. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  },
+  "worksPage": {
+    "label": "Complete Portfolio",
+    "title1": "All Our",
+    "title2": "Works.",
+    "subtitle": "Every project is a story of ambition, precision, and results. Here's what we've built.",
+    "filterAll": "All",
+    "viewProject": "View Project",
+    "backHome": "Back to Home",
+    "ctaTitle1": "Ready to build your",
+    "ctaTitle2": "next big thing?",
+    "ctaBtn": "Start a Project"
   },
   "products": {
     "title": "Software Products",
@@ -37,27 +143,6 @@
     "techStack": "Tech Stack",
     "screenshots": "Screenshots"
   },
-  "about": {
-    "title": "About Us",
-    "subtitle": "Who We Are",
-    "p1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. EliteTech DEV is a premier software development company founded with a vision to deliver world-class technology solutions.",
-    "p2": "We specialize in desktop applications, web systems, mobile apps, and IoT modules — serving clients across multiple countries with a dedicated team of experienced engineers.",
-    "p3": "Our commitment is to turn your ideas into reliable, scalable, and beautiful software products.",
-    "mission": "Mission",
-    "missionText": "To deliver high-quality, innovative software solutions that empower businesses to grow and succeed.",
-    "vision": "Vision",
-    "visionText": "To be the most trusted software development partner for businesses across Southeast Asia and beyond."
-  },
-  "whyUs": {
-    "title": "Why Choose Us",
-    "subtitle": "What sets us apart from the rest",
-    "item1Title": "Expert Team",
-    "item1Desc": "Our developers bring years of industry experience across diverse tech stacks.",
-    "item2Title": "On-Time Delivery",
-    "item2Desc": "We respect your timeline and deliver projects on schedule, every time.",
-    "item3Title": "24/7 Support",
-    "item3Desc": "Our support team is always available to assist you whenever you need help."
-  },
   "team": {
     "title": "Our Team",
     "subtitle": "The people behind EliteTech DEV",
@@ -65,29 +150,79 @@
     "skills": "Skills",
     "backHome": "← Back to Home"
   },
-  "testimonials": {
-    "title": "Testimonials",
-    "subtitle": "What our clients say about us"
-  },
-  "cta": {
-    "title": "Ready to Build Something Great?",
-    "subtitle": "Let's turn your idea into reality.",
-    "button": "Get In Touch"
-  },
-  "contact": {
-    "title": "Get in Touch",
-    "whatsapp": "WhatsApp",
-    "instagram": "Instagram",
-    "gmail": "Gmail"
-  },
-  "footer": {
-    "copyright": "© Copyright 2023 Elite Tech"
-  },
   "servicesPage": {
     "whatWeOffer": "What We Offer",
     "techStack": "Tech Stack",
     "whyChooseUs": "Why Choose Us For This",
     "startProject": "Start a Project",
     "backHome": "← Back to Home"
+  },
+  "productsSection": {
+    "tagline": "Our Products",
+    "heading1": "Software &",
+    "heading2": "hardware",
+    "heading3": " we've built.",
+    "viewAll": "View All Products",
+    "filterAll": "All",
+    "filterSoftware": "Software",
+    "filterIoT": "IoT"
+  },
+  "productsPage": {
+    "label": "Our Products",
+    "title1": "All Our",
+    "title2": "Products.",
+    "subtitle": "From enterprise software to smart IoT devices — products built in-house and battle-tested in the field.",
+    "backHome": "Back to Home",
+    "filterAll": "All",
+    "viewProduct": "View Product",
+    "productCount": "Products",
+    "ctaTitle1": "Need a custom",
+    "ctaTitle2": "solution?",
+    "ctaBtn": "Talk to Us"
+  },
+  "servicesListingPage": {
+    "label": "Our Services",
+    "title1": "What We",
+    "title2": "Build.",
+    "subtitle": "Four focused disciplines, one unified goal — helping your business grow through engineering excellence.",
+    "backHome": "Back to Home",
+    "learnMore": "Learn More",
+    "item1LongDesc": "We architect and build high-performance web applications that scale with your business, from complex enterprise platforms to consumer-facing products.",
+    "item2LongDesc": "Great design is a revenue driver. We design interfaces that guide users toward their goals with clarity, reducing friction at every touchpoint.",
+    "item3LongDesc": "Slow software costs you revenue. We conduct deep performance audits and implement targeted fixes that deliver measurable, lasting speed improvements.",
+    "item4LongDesc": "Modern businesses run on a stack of tools. We build the integration layer that connects them, eliminating manual work and creating a single source of truth.",
+    "item5LongDesc": "From ESP32 sensor nodes to Raspberry Pi gateways, we build complete IoT solutions — custom firmware, cloud connectivity, and real-time dashboards — tailored to your physical environment.",
+    "ctaTitle1": "Not sure which",
+    "ctaTitle2": "service you need?",
+    "ctaBtn": "Let's Talk"
+  },
+  "contactPage": {
+    "label": "Get In Touch",
+    "title1": "Start a",
+    "title2": "Project.",
+    "subtitle": "Tell us about your project and we'll get back to you within 24 hours.",
+    "backHome": "Back to Home",
+    "infoEmailLabel": "Email Us",
+    "infoResponseLabel": "Response Time",
+    "infoResponseValue": "Within 24 hours",
+    "infoLocationLabel": "Based In",
+    "infoFollowLabel": "Follow Us",
+    "fieldName": "Full Name",
+    "fieldNamePlaceholder": "John Doe",
+    "fieldEmail": "Email Address",
+    "fieldEmailPlaceholder": "john@company.com",
+    "fieldCompany": "Company (Optional)",
+    "fieldCompanyPlaceholder": "Your company name",
+    "fieldService": "Service Needed",
+    "fieldServicePlaceholder": "Select a service",
+    "fieldBudget": "Budget Range",
+    "fieldBudgetPlaceholder": "Select budget",
+    "fieldMessage": "Project Details",
+    "fieldMessagePlaceholder": "Tell us about your project, goals, and timeline...",
+    "requiredNote": "Required fields",
+    "submitBtn": "Send Message",
+    "submitting": "Sending...",
+    "successTitle": "Message Sent!",
+    "successDesc": "Thank you for reaching out. We've received your message and will get back to you within 24 hours."
   }
 }
