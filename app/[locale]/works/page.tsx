@@ -5,90 +5,14 @@ import { motion, AnimatePresence } from "motion/react";
 import { ArrowUpRight, ArrowLeft } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "../../../src/i18n/navigation";
-
-const projects = [
-  {
-    slug: "finflow-platform",
-    title: "FinFlow Platform",
-    category: "Fintech",
-    year: "2024",
-    desc: "Processed over $50M in secure, high-frequency transactions with robust backend architecture and real-time analytics.",
-    image:
-      "https://images.unsplash.com/photo-1762330463863-a6a399beb5ba?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjB3ZWJzaXRlJTIwVUklMjBkZXNpZ24lMjBtb2NrdXAlMjBkYXJrfGVufDF8fHx8MTc3Mzk1OTUwOXww&ixlib=rb-4.1.0&q=80&w=1080",
-    tags: ["Next.js", "PostgreSQL", "Stripe"],
-    num: "01",
-    featured: true,
-  },
-  {
-    slug: "nova-os",
-    title: "Nova OS",
-    category: "SaaS",
-    year: "2024",
-    desc: "A highly interactive dashboard that increased active user retention by 42% through thoughtful UX engineering.",
-    image:
-      "https://images.unsplash.com/photo-1725267196915-7700df784ba6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBpbnRlcmZhY2UlMjBtb2NrdXAlMjBtaW5pbWFsfGVufDF8fHx8MTc3Mzk1OTUwOXww&ixlib=rb-4.1.0&q=80&w=1080",
-    tags: ["React", "Node.js", "Redis"],
-    num: "02",
-    featured: false,
-  },
-  {
-    slug: "lumina-commerce",
-    title: "Lumina Commerce",
-    category: "E-Commerce",
-    year: "2023",
-    desc: "Headless commerce build optimizing global load times and boosting conversion rates by 28% at scale.",
-    image:
-      "https://images.unsplash.com/photo-1752134593976-603769edccbb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzbGVlayUyMG1vZGVybiUyMGJyYW5kaW5nJTIwbW9ja3VwfGVufDF8fHx8MTc3Mzk1OTUwOXww&ixlib=rb-4.1.0&q=80&w=1080",
-    tags: ["Shopify", "Hydrogen", "Tailwind"],
-    num: "03",
-    featured: false,
-  },
-  {
-    slug: "pulse-health",
-    title: "PulseHealth",
-    category: "Healthcare",
-    year: "2023",
-    desc: "Patient management platform serving 50k+ users daily, with HIPAA-compliant data architecture and real-time monitoring.",
-    image:
-      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-    tags: ["React", "Django", "AWS"],
-    num: "04",
-    featured: false,
-  },
-  {
-    slug: "aero-desk",
-    title: "AeroDesk",
-    category: "SaaS",
-    year: "2023",
-    desc: "Collaborative workspace tool that replaced five legacy tools, reducing overhead by 60% for remote-first teams.",
-    image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-    tags: ["Vue.js", "Supabase", "WebSocket"],
-    num: "05",
-    featured: false,
-  },
-  {
-    slug: "shield-auth",
-    title: "ShieldAuth",
-    category: "Security",
-    year: "2022",
-    desc: "Zero-trust identity platform protecting 2M+ accounts across enterprise environments with adaptive threat response.",
-    image:
-      "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-    tags: ["Go", "Kubernetes", "Vault"],
-    num: "06",
-    featured: false,
-  },
-];
-
-const CATEGORIES = ["All", "Fintech", "SaaS", "E-Commerce", "Healthcare", "Security"];
+import { allWorks, WORK_CATEGORIES } from "../../../src/data/works";
 
 export default function WorksPage() {
   const t = useTranslations("worksPage");
   const [active, setActive] = useState("All");
 
   const filtered =
-    active === "All" ? projects : projects.filter((p) => p.category === active);
+    active === "All" ? allWorks : allWorks.filter((p) => p.category === active);
 
   return (
     <main className="bg-[#050505] text-white min-h-screen">
@@ -158,7 +82,7 @@ export default function WorksPage() {
       {/* ── Filter ── */}
       <section className="sticky top-19 z-30 bg-[#050505]/90 backdrop-blur-md border-b border-white/5">
         <div className="container mx-auto px-6 py-5 flex items-center space-x-2 overflow-x-auto scrollbar-hide">
-          {CATEGORIES.map((cat) => (
+          {WORK_CATEGORIES.map((cat) => (
             <button
               key={cat}
               onClick={() => setActive(cat)}

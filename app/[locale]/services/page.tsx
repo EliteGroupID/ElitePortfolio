@@ -4,64 +4,7 @@ import { motion } from "motion/react";
 import { ArrowUpRight, ArrowLeft } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "../../../src/i18n/navigation";
-
-const services = [
-  {
-    slug: "web-development",
-    num: "01",
-    category: "Core Service",
-    titleKey: "item1Title",
-    descKey: "item1LongDesc",
-    tags: ["Next.js", "React", "Node.js", "PostgreSQL"],
-    image:
-      "https://images.unsplash.com/photo-1762330463863-a6a399beb5ba?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-    stats: { value: "200+", label: "Apps Shipped" },
-  },
-  {
-    slug: "ui-ux-design",
-    num: "02",
-    category: "Core Service",
-    titleKey: "item2Title",
-    descKey: "item2LongDesc",
-    tags: ["Figma", "Framer", "Design Systems", "Prototyping"],
-    image:
-      "https://images.unsplash.com/photo-1725267196915-7700df784ba6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-    stats: { value: "+42%", label: "Avg. Retention Lift" },
-  },
-  {
-    slug: "performance-optimization",
-    num: "03",
-    category: "Specialist Service",
-    titleKey: "item3Title",
-    descKey: "item3LongDesc",
-    tags: ["Lighthouse", "Datadog", "Cloudflare", "Webpack"],
-    image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-    stats: { value: "3×", label: "Avg. Speed Gain" },
-  },
-  {
-    slug: "system-integration",
-    num: "04",
-    category: "Specialist Service",
-    titleKey: "item4Title",
-    descKey: "item4LongDesc",
-    tags: ["REST", "GraphQL", "Kafka", "n8n"],
-    image:
-      "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-    stats: { value: "99.95%", label: "Integration Uptime" },
-  },
-  {
-    slug: "iot-embedded-systems",
-    num: "05",
-    category: "Specialist Service",
-    titleKey: "item5Title",
-    descKey: "item5LongDesc",
-    tags: ["ESP32", "Arduino", "MQTT", "Raspberry Pi"],
-    image:
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-    stats: { value: "99.8%", label: "Device Uptime" },
-  },
-];
+import { allServices } from "../../../src/data/services";
 
 export default function ServicesPage() {
   const t = useTranslations("servicesListingPage");
@@ -132,7 +75,7 @@ export default function ServicesPage() {
       {/* ── Services List ── */}
       <section className="container mx-auto px-6 py-20">
         <div className="space-y-6">
-          {services.map((svc, idx) => (
+          {allServices.map((svc, idx) => (
             <motion.div
               key={svc.slug}
               initial={{ opacity: 0, y: 30 }}
@@ -185,9 +128,9 @@ export default function ServicesPage() {
 
                     <div className="flex items-center justify-between mt-8 pt-6 border-t border-white/5">
                       <div>
-                        <div className="text-2xl font-black tracking-tighter">{svc.stats.value}</div>
+                        <div className="text-2xl font-black tracking-tighter">{svc.listStat.value}</div>
                         <div className="text-xs uppercase tracking-widest text-neutral-600 font-medium mt-1">
-                          {svc.stats.label}
+                          {svc.listStat.label}
                         </div>
                       </div>
 
