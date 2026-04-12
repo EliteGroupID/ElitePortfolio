@@ -3,6 +3,28 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Performance optimizations */
+img {
+  content-visibility: auto;
+}
+
+/* Prevent layout shift */
+video,
+iframe,
+embed,
+object {
+  max-width: 100%;
+}
+
+/* Improve rendering performance */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
 @theme inline {
   --font-sans: 'Poppins', sans-serif;
 
@@ -131,7 +153,7 @@
 
   html {
     font-size: var(--font-size);
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-poppins), 'Poppins', sans-serif;
     background-color: #050505;
   }
 
@@ -139,7 +161,7 @@
     @apply text-foreground;
     background-color: #050505;
     margin: 0;
-    user-select: none;
+    /* Remove user-select: none - it's bad for accessibility and UX */
   }
 
   h1 {

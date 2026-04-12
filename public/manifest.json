@@ -1,0 +1,41 @@
+{
+  "name": "ELITECH ID. - Premium Digital Product Studio",
+  "short_name": "ELITECH ID",
+  "description": "Premium digital product studio specializing in web development, UI/UX design, and IoT solutions.",
+  "start_url": "/",
+  "display": "minimal-ui",
+  "background_color": "#050505",
+  "theme_color": "#050505",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/assets/eg-icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/eg-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "productivity", "technology"],
+  "shortcuts": [
+    {
+      "name": "View Works",
+      "short_name": "Works",
+      "description": "View our portfolio",
+      "url": "/works",
+      "icons": [{ "src": "/assets/eg-icon.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Contact Us",
+      "short_name": "Contact",
+      "description": "Get in touch",
+      "url": "/contact",
+      "icons": [{ "src": "/assets/eg-icon.png", "sizes": "96x96" }]
+    }
+  ]
+}

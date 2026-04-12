@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Poppins } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -6,8 +7,19 @@ import { routing } from "../../src/i18n/routing";
 import { Navbar } from "../../src/components/Navbar";
 import { SplashScreen } from "../../src/components/SplashScreen";
 import { GoogleAnalyticsScript } from "../../src/components/GoogleAnalytics";
+import { WebVitals } from "../../src/components/WebVitals";
+import { SkipLink } from "../../src/components/SkipLink";
 import { JsonLd, generateOrganizationJsonLd } from "../../src/lib/seo";
 import "../globals.css";
+
+// Optimized font loading with next/font
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "900"],
+  display: "swap",
+  variable: "--font-poppins",
+  preload: true,
+});
 
 export const metadata: Metadata = {
   title: {
@@ -26,7 +38,7 @@ export const metadata: Metadata = {
     "custom software",
     "digital product studio",
   ],
-  authors: [{ name: "ELITECH ID" }],
+  authors: [{ name: "ELITECH ID", url: "https://elitetech.dev" }],
   creator: "ELITECH ID",
   publisher: "ELITECH ID",
   formatDetection: {
@@ -35,6 +47,21 @@ export const metadata: Metadata = {
     telephone: false,
   },
   metadataBase: new URL("https://elitetech.dev"),
+  icons: {
+    icon: [
+      { url: "/assets/eg-icon.png", sizes: "192x192", type: "image/png" },
+      { url: "/assets/eg-icon.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [
+      { url: "/assets/eg-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    title: "ELITECH ID.",
+    statusBarStyle: "default",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -72,21 +99,13 @@ export default async function LocaleLayout({
   if (!routing.locales.includes(locale as "en" | "id")) notFound();
   const messages = await getMessages();
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html
+      lang={locale}
+      suppressHydrationWarning
+      className={poppins.variable}
+    >
       <head>
-        <link
-          rel="preconnect"
-          href="https://fonts.googleapis.com"
-        />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap"
-        />
+        {/* Theme script for preventing flash of unstyled content */}
         <script
           dangerouslySetInnerHTML={{
             __html: `(function() {
@@ -101,18 +120,20 @@ export default async function LocaleLayout({
           }}
         />
       </head>
-      <body>
+      <body className={poppins.className}>
+        <SkipLink />
         <NextIntlClientProvider messages={messages}>
           <SplashScreen />
           <Navbar />
-          {children}
+          <div id="main-content">{children}</div>
         </NextIntlClientProvider>
         <GoogleAnalyticsScript />
+        <WebVitals />
         <JsonLd
           data={generateOrganizationJsonLd({
             name: "ELITECH ID.",
             url: "https://elitetech.dev",
-            logo: "https://elitetech.dev/og-image.png",
+            logo: "https://elitetech.dev/assets/eg-icon.png",
             description: "Premium digital product studio specializing in web development, UI/UX design, and IoT solutions.",
             contactPoint: {
               email: "hello@elitetech.dev",
