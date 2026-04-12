@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { routing } from "../../src/i18n/routing";
 import { Navbar } from "../../src/components/Navbar";
 import { SplashScreen } from "../../src/components/SplashScreen";
+import { GoogleAnalyticsScript } from "../../src/components/GoogleAnalytics";
 import "../globals.css";
 
 export const metadata: Metadata = {
@@ -59,6 +60,7 @@ export default async function LocaleLayout({
           <Navbar />
           {children}
         </NextIntlClientProvider>
+        <GoogleAnalyticsScript />
       </body>
     </html>
   );
