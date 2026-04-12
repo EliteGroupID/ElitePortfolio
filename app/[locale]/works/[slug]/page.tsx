@@ -1,20 +1,73 @@
-"use client";
-
-import { notFound, useParams } from "next/navigation";
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { motion } from "motion/react";
 import { ArrowLeft, ArrowUpRight, ExternalLink } from "lucide-react";
 import { Link } from "../../../../src/i18n/navigation";
 import { allWorks } from "../../../../src/data/works";
+import { JsonLd, generateCreativeWorkJsonLd, generateBreadcrumbJsonLd } from "../../../../src/lib/seo";
 
-export default function CaseStudyPage() {
-  const params = useParams();
-  const slug = params?.slug as string;
+interface PageProps {
+  params: Promise<{ slug: string; locale: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug, locale } = await params;
+  const project = allWorks.find((p) => p.slug === slug);
+
+  if (!project) {
+    return {
+      title: "Project Not Found",
+    };
+  }
+
+  return {
+    title: project.title,
+    description: project.overview,
+    openGraph: {
+      title: `${project.title} | ELITECH ID. Case Study`,
+      description: project.overview,
+      images: [{ url: project.image, width: 1200, height: 630, alt: project.title }],
+    },
+    twitter: {
+      title: `${project.title} | ELITECH ID.`,
+      description: project.overview,
+      images: [project.image],
+    },
+  };
+}
+
+export async function generateStaticParams() {
+  return allWorks.map((work) => ({
+    slug: work.slug,
+  }));
+}
+
+export default async function CaseStudyPage({ params }: PageProps) {
+  const { slug } = await params;
   const project = allWorks.find((p) => p.slug === slug);
 
   if (!project) notFound();
 
   return (
-    <main className="bg-[#050505] text-white min-h-screen">
+    <>
+      <JsonLd
+        data={generateCreativeWorkJsonLd({
+          name: project.title,
+          description: project.overview,
+          image: project.image,
+          creator: "ELITECH ID.",
+          dateCreated: project.year,
+          keywords: [...project.tags, project.category],
+        })}
+      />
+      <JsonLd
+        data={generateBreadcrumbJsonLd([
+          { name: "Home", item: "https://elitetech.dev" },
+          { name: "Works", item: "https://elitetech.dev/works" },
+          { name: project.title, item: `https://elitetech.dev/works/${project.slug}` },
+        ])}
+      />
+      <main className="bg-[#050505] text-white min-h-screen">
       {/* ── Hero ── */}
       <section className="relative h-screen flex flex-col justify-end pb-20 overflow-hidden">
         {/* Hero image */}
@@ -299,5 +352,6 @@ export default function CaseStudyPage() {
         </div>
       </section>
     </main>
+    </>
   );
 }

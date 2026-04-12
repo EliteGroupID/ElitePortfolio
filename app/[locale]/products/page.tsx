@@ -6,9 +6,30 @@ import { ArrowUpRight, ArrowLeft } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "../../../src/i18n/navigation";
 import { products, type ProductCategory } from "../../../src/data/products";
+import { JsonLd, generateWebPageJsonLd, generateBreadcrumbJsonLd } from "../../../src/lib/seo";
 
 type Filter = "All" | ProductCategory;
 const FILTERS: Filter[] = ["All", "Software", "IoT"];
+
+export function ProductsPageMetadata() {
+  return (
+    <>
+      <JsonLd
+        data={generateWebPageJsonLd({
+          name: "Our Products - Software Solutions & IoT Products",
+          description: "Discover our ready-to-use software products and IoT solutions. Built with cutting-edge technology, our products help businesses scale efficiently.",
+          url: "https://elitetech.dev/products",
+        })}
+      />
+      <JsonLd
+        data={generateBreadcrumbJsonLd([
+          { name: "Home", item: "https://elitetech.dev" },
+          { name: "Products", item: "https://elitetech.dev/products" },
+        ])}
+      />
+    </>
+  );
+}
 
 export default function ProductsPage() {
   const t = useTranslations("productsPage");
@@ -17,7 +38,9 @@ export default function ProductsPage() {
   const filtered = active === "All" ? products : products.filter((p) => p.category === active);
 
   return (
-    <main className="bg-[#050505] text-white min-h-screen">
+    <>
+      <ProductsPageMetadata />
+      <main className="bg-[#050505] text-white min-h-screen">
       {/* ── Hero ── */}
       <section className="relative min-h-[65vh] flex flex-col justify-end pb-20 pt-40 overflow-hidden">
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
@@ -237,5 +260,6 @@ export default function ProductsPage() {
         </div>
       </section>
     </main>
+    </>
   );
 }

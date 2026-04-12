@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 import { ArrowUpRight, ArrowLeft, Send, CheckCircle2 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "../../../src/i18n/navigation";
+import { JsonLd, generateWebPageJsonLd, generateBreadcrumbJsonLd } from "../../../src/lib/seo";
 
 const SERVICE_OPTIONS = [
   "Web Development",
@@ -21,6 +22,26 @@ const BUDGET_OPTIONS = [
   "$50,000+",
   "Let's discuss",
 ];
+
+export function ContactPageMetadata() {
+  return (
+    <>
+      <JsonLd
+        data={generateWebPageJsonLd({
+          name: "Contact Us - Start Your Project",
+          description: "Get in touch with ELITECH ID to discuss your next project. We respond within 24 hours. Transform your ideas into exceptional digital experiences.",
+          url: "https://elitetech.dev/contact",
+        })}
+      />
+      <JsonLd
+        data={generateBreadcrumbJsonLd([
+          { name: "Home", item: "https://elitetech.dev" },
+          { name: "Contact", item: "https://elitetech.dev/contact" },
+        ])}
+      />
+    </>
+  );
+}
 
 export default function ContactPage() {
   const t = useTranslations("contactPage");
@@ -52,7 +73,9 @@ export default function ContactPage() {
   }
 
   return (
-    <main className="bg-[#050505] text-white min-h-screen">
+    <>
+      <ContactPageMetadata />
+      <main className="bg-[#050505] text-white min-h-screen">
       {/* ── Hero ── */}
       <section className="relative pt-40 pb-20 border-b border-white/5 overflow-hidden">
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
@@ -335,5 +358,6 @@ export default function ContactPage() {
         </div>
       </section>
     </main>
+    </>
   );
 }

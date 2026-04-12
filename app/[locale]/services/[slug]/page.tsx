@@ -1,14 +1,49 @@
-"use client";
-
-import { notFound, useParams } from "next/navigation";
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { motion } from "motion/react";
 import { ArrowLeft, ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { Link } from "../../../../src/i18n/navigation";
 import { allServices, relatedProjectData } from "../../../../src/data/services";
+import { JsonLd, generateServiceJsonLd, generateBreadcrumbJsonLd } from "../../../../src/lib/seo";
 
-export default function ServicePage() {
-  const params = useParams();
-  const slug = params?.slug as string;
+interface PageProps {
+  params: Promise<{ slug: string; locale: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const service = allServices.find((s) => s.slug === slug);
+
+  if (!service) {
+    return {
+      title: "Service Not Found",
+    };
+  }
+
+  return {
+    title: service.title,
+    description: service.description,
+    openGraph: {
+      title: `${service.title} | ELITECH ID.`,
+      description: service.description,
+      images: [{ url: service.image, width: 1200, height: 630, alt: service.title }],
+    },
+    twitter: {
+      title: `${service.title} | ELITECH ID.`,
+      description: service.description,
+      images: [service.image],
+    },
+  };
+}
+
+export async function generateStaticParams() {
+  return allServices.map((service) => ({
+    slug: service.slug,
+  }));
+}
+
+export default async function ServicePage({ params }: PageProps) {
+  const { slug } = await params;
   const service = allServices.find((s) => s.slug === slug);
 
   if (!service) notFound();
@@ -16,7 +51,23 @@ export default function ServicePage() {
   const otherServices = allServices.filter((s) => s.slug !== slug);
 
   return (
-    <main className="bg-[#050505] text-white min-h-screen">
+    <>
+      <JsonLd
+        data={generateServiceJsonLd({
+          name: service.title,
+          description: service.description,
+          provider: "ELITECH ID.",
+          areaServed: "Indonesia",
+        })}
+      />
+      <JsonLd
+        data={generateBreadcrumbJsonLd([
+          { name: "Home", item: "https://elitetech.dev" },
+          { name: "Services", item: "https://elitetech.dev/services" },
+          { name: service.title, item: `https://elitetech.dev/services/${service.slug}` },
+        ])}
+      />
+      <main className="bg-[#050505] text-white min-h-screen">
       {/* ── Hero ── */}
       <section className="relative pt-40 pb-24 overflow-hidden border-b border-white/5">
         {/* Background image — subtle */}
@@ -352,5 +403,6 @@ export default function ServicePage() {
         </div>
       </section>
     </main>
+    </>
   );
 }
