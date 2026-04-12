@@ -6,6 +6,27 @@ import { ArrowUpRight, ArrowLeft } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "../../../src/i18n/navigation";
 import { allWorks, WORK_CATEGORIES } from "../../../src/data/works";
+import { JsonLd, generateWebPageJsonLd, generateBreadcrumbJsonLd } from "../../../src/lib/seo";
+
+export function WorksPageMetadata() {
+  return (
+    <>
+      <JsonLd
+        data={generateWebPageJsonLd({
+          name: "Our Work - Portfolio & Case Studies",
+          description: "Explore our portfolio of successful projects. From web applications to IoT solutions, see how ELITECH ID transforms ideas into exceptional digital products.",
+          url: "https://elitetech.dev/works",
+        })}
+      />
+      <JsonLd
+        data={generateBreadcrumbJsonLd([
+          { name: "Home", item: "https://elitetech.dev" },
+          { name: "Works", item: "https://elitetech.dev/works" },
+        ])}
+      />
+    </>
+  );
+}
 
 export default function WorksPage() {
   const t = useTranslations("worksPage");
@@ -15,7 +36,9 @@ export default function WorksPage() {
     active === "All" ? allWorks : allWorks.filter((p) => p.category === active);
 
   return (
-    <main className="bg-[#050505] text-white min-h-screen">
+    <>
+      <WorksPageMetadata />
+      <main className="bg-[#050505] text-white min-h-screen">
       {/* ── Hero ── */}
       <section className="relative min-h-[70vh] flex flex-col justify-end pb-20 pt-40 overflow-hidden">
         {/* Background number watermark */}
@@ -241,5 +264,6 @@ export default function WorksPage() {
         </div>
       </section>
     </main>
+    </>
   );
 }

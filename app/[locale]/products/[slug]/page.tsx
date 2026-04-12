@@ -1,14 +1,49 @@
-"use client";
-
-import { notFound, useParams } from "next/navigation";
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { motion } from "motion/react";
 import { ArrowLeft, ArrowUpRight, CheckCircle2, MessageCircle } from "lucide-react";
 import { Link } from "../../../../src/i18n/navigation";
 import { products } from "../../../../src/data/products";
+import { JsonLd, generateProductJsonLd, generateBreadcrumbJsonLd } from "../../../../src/lib/seo";
 
-export default function ProductPage() {
-  const params = useParams();
-  const slug = params?.slug as string;
+interface PageProps {
+  params: Promise<{ slug: string; locale: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const product = products.find((p) => p.slug === slug);
+
+  if (!product) {
+    return {
+      title: "Product Not Found",
+    };
+  }
+
+  return {
+    title: product.name,
+    description: product.longDescription,
+    openGraph: {
+      title: `${product.name} | ELITECH ID. Product`,
+      description: product.longDescription,
+      images: [{ url: product.image, width: 1200, height: 630, alt: product.name }],
+    },
+    twitter: {
+      title: `${product.name} | ELITECH ID.`,
+      description: product.longDescription,
+      images: [product.image],
+    },
+  };
+}
+
+export async function generateStaticParams() {
+  return products.map((product) => ({
+    slug: product.slug,
+  }));
+}
+
+export default async function ProductPage({ params }: PageProps) {
+  const { slug } = await params;
   const product = products.find((p) => p.slug === slug);
 
   if (!product) notFound();
@@ -16,7 +51,28 @@ export default function ProductPage() {
   const otherProducts = products.filter((p) => p.slug !== slug).slice(0, 3);
 
   return (
-    <main className="bg-[#050505] text-white min-h-screen">
+    <>
+      <JsonLd
+        data={generateProductJsonLd({
+          name: product.name,
+          description: product.longDescription,
+          image: product.image,
+          category: product.category,
+          offers: product.status === "Available" ? {
+            price: "Custom",
+            priceCurrency: "USD",
+            availability: "https://schema.org/InStock",
+          } : undefined,
+        })}
+      />
+      <JsonLd
+        data={generateBreadcrumbJsonLd([
+          { name: "Home", item: "https://elitetech.dev" },
+          { name: "Products", item: "https://elitetech.dev/products" },
+          { name: product.name, item: `https://elitetech.dev/products/${product.slug}` },
+        ])}
+      />
+      <main className="bg-[#050505] text-white min-h-screen">
       {/* ── Hero ── */}
       <section className="relative pt-40 pb-24 overflow-hidden border-b border-white/5">
         {/* Background image */}
@@ -311,5 +367,6 @@ export default function ProductPage() {
         </div>
       </section>
     </main>
+    </>
   );
 }

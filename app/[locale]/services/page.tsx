@@ -5,13 +5,36 @@ import { ArrowUpRight, ArrowLeft } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "../../../src/i18n/navigation";
 import { allServices } from "../../../src/data/services";
+import { JsonLd, generateWebPageJsonLd, generateBreadcrumbJsonLd } from "../../../src/lib/seo";
+
+export function ServicesPageMetadata() {
+  return (
+    <>
+      <JsonLd
+        data={generateWebPageJsonLd({
+          name: "Our Services - Web Development, UI/UX Design, & IoT Solutions",
+          description: "Comprehensive digital services including web development, UI/UX design, performance optimization, system integration, and IoT solutions. Transform your business with ELITECH ID.",
+          url: "https://elitetech.dev/services",
+        })}
+      />
+      <JsonLd
+        data={generateBreadcrumbJsonLd([
+          { name: "Home", item: "https://elitetech.dev" },
+          { name: "Services", item: "https://elitetech.dev/services" },
+        ])}
+      />
+    </>
+  );
+}
 
 export default function ServicesPage() {
   const t = useTranslations("servicesListingPage");
   const ts = useTranslations("services");
 
   return (
-    <main className="bg-[#050505] text-white min-h-screen">
+    <>
+      <ServicesPageMetadata />
+      <main className="bg-[#050505] text-white min-h-screen">
       {/* ── Hero ── */}
       <section className="relative min-h-[65vh] flex flex-col justify-end pb-20 pt-40 overflow-hidden">
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
@@ -186,5 +209,6 @@ export default function ServicesPage() {
         </div>
       </section>
     </main>
+    </>
   );
 }

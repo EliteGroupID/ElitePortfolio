@@ -7,6 +7,7 @@ import {
   Zap, Plug, Cpu, ShoppingCart, CheckCircle2, ArrowUpRight,
 } from "lucide-react";
 import { Link } from "../../../src/i18n/navigation";
+import { JsonLd, generateWebPageJsonLd, generateBreadcrumbJsonLd } from "../../../src/lib/seo";
 
 // ── Data ─────────────────────────────────────────────────────────────────────
 
@@ -82,6 +83,26 @@ function fmt(n: number) {
 
 // ── Component ────────────────────────────────────────────────────────────────
 
+export function EstimatePageMetadata() {
+  return (
+    <>
+      <JsonLd
+        data={generateWebPageJsonLd({
+          name: "Project Cost Estimator",
+          description: "Get an instant estimate for your web development, mobile app, or IoT project. Our 4-step estimator provides pricing and timeline estimates.",
+          url: "https://elitetech.dev/estimate",
+        })}
+      />
+      <JsonLd
+        data={generateBreadcrumbJsonLd([
+          { name: "Home", item: "https://elitetech.dev" },
+          { name: "Project Estimator", item: "https://elitetech.dev/estimate" },
+        ])}
+      />
+    </>
+  );
+}
+
 export default function EstimatePage() {
   const [step, setStep] = useState(0);
   const [typeId, setTypeId] = useState("");
@@ -117,7 +138,9 @@ export default function EstimatePage() {
   };
 
   return (
-    <main className="bg-[#050505] text-white min-h-screen">
+    <>
+      <EstimatePageMetadata />
+      <main className="bg-[#050505] text-white min-h-screen">
       {/* ── Header ── */}
       <section className="pt-40 pb-12 border-b border-white/5">
         <div className="container mx-auto px-6">
@@ -557,5 +580,6 @@ export default function EstimatePage() {
         </div>
       </section>
     </main>
+    </>
   );
 }

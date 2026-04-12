@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "../../../src/i18n/navigation";
+import { JsonLd, generateWebPageJsonLd, generateBreadcrumbJsonLd } from "../../../src/lib/seo";
 
 const sections = [
   {
@@ -83,9 +84,31 @@ const sections = [
   },
 ];
 
+export function TermsPageMetadata() {
+  return (
+    <>
+      <JsonLd
+        data={generateWebPageJsonLd({
+          name: "Terms of Service",
+          description: "ELITECH ID Terms of Service. Read our terms and conditions for web development, UI/UX design, and digital services.",
+          url: "https://elitetech.dev/terms",
+        })}
+      />
+      <JsonLd
+        data={generateBreadcrumbJsonLd([
+          { name: "Home", item: "https://elitetech.dev" },
+          { name: "Terms of Service", item: "https://elitetech.dev/terms" },
+        ])}
+      />
+    </>
+  );
+}
+
 export default function TermsPage() {
   return (
-    <main className="bg-[#050505] text-white min-h-screen">
+    <>
+      <TermsPageMetadata />
+      <main className="bg-[#050505] text-white min-h-screen">
       {/* Hero */}
       <section className="relative pt-40 pb-20 border-b border-white/5 overflow-hidden">
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
@@ -200,5 +223,6 @@ export default function TermsPage() {
         </div>
       </section>
     </main>
+    </>
   );
 }

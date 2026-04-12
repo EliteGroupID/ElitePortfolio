@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "../../../src/i18n/navigation";
+import { JsonLd, generateWebPageJsonLd, generateBreadcrumbJsonLd } from "../../../src/lib/seo";
 
 const sections = [
   {
@@ -69,9 +70,31 @@ const sections = [
   },
 ];
 
+export function PrivacyPageMetadata() {
+  return (
+    <>
+      <JsonLd
+        data={generateWebPageJsonLd({
+          name: "Privacy Policy",
+          description: "ELITECH ID Privacy Policy. Learn how we collect, use, and protect your personal information. We are committed to transparency and data security.",
+          url: "https://elitetech.dev/privacy",
+        })}
+      />
+      <JsonLd
+        data={generateBreadcrumbJsonLd([
+          { name: "Home", item: "https://elitetech.dev" },
+          { name: "Privacy Policy", item: "https://elitetech.dev/privacy" },
+        ])}
+      />
+    </>
+  );
+}
+
 export default function PrivacyPage() {
   return (
-    <main className="bg-[#050505] text-white min-h-screen">
+    <>
+      <PrivacyPageMetadata />
+      <main className="bg-[#050505] text-white min-h-screen">
       {/* Hero */}
       <section className="relative pt-40 pb-20 border-b border-white/5 overflow-hidden">
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
@@ -186,5 +209,6 @@ export default function PrivacyPage() {
         </div>
       </section>
     </main>
+    </>
   );
 }
