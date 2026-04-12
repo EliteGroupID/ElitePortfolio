@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { Link } from "../../../../src/i18n/navigation";
 import { allServices, relatedProjectData } from "../../../../src/data/services";
 import { JsonLd, generateServiceJsonLd, generateBreadcrumbJsonLd } from "../../../../src/lib/seo";
+import { OptimizedImage } from "../../../../src/components/OptimizedImage";
 
 interface PageProps {
   params: Promise<{ slug: string; locale: string }>;
@@ -72,10 +73,14 @@ export default async function ServicePage({ params }: PageProps) {
       <section className="relative pt-40 pb-24 overflow-hidden border-b border-white/5">
         {/* Background image — subtle */}
         <div className="absolute inset-0 opacity-10">
-          <img
+          <OptimizedImage
             src={service.image}
             alt={service.title}
             className="w-full h-full object-cover"
+            width={1920}
+            height={1080}
+            priority
+            fadeIn={false}
           />
           <div className="absolute inset-0 bg-linear-to-b from-[#050505]/50 to-[#050505]" />
         </div>
@@ -308,10 +313,11 @@ export default async function ServicePage({ params }: PageProps) {
                 >
                   <Link href={`/works/${workSlug}`} className="group block">
                     <div className="relative overflow-hidden rounded-xl aspect-video bg-neutral-900 mb-4">
-                      <img
+                      <OptimizedImage
                         src={work.image}
                         alt={work.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        aspectRatio="16/9"
                       />
                       <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-500" />
                       <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">

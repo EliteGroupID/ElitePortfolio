@@ -7,6 +7,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "../../../src/i18n/navigation";
 import { products, type ProductCategory } from "../../../src/data/products";
 import { JsonLd, generateWebPageJsonLd, generateBreadcrumbJsonLd } from "../../../src/lib/seo";
+import { OptimizedImage } from "../../../src/components/OptimizedImage";
 
 type Filter = "All" | ProductCategory;
 const FILTERS: Filter[] = ["All", "Software", "IoT"];
@@ -146,10 +147,12 @@ export default function ProductsPage() {
                   <div className="h-full flex flex-col border border-white/5 rounded-2xl overflow-hidden hover:border-white/15 transition-colors duration-500">
                     {/* Image */}
                     <div className="relative overflow-hidden aspect-video bg-neutral-900">
-                      <img
+                      <OptimizedImage
                         src={product.image}
                         alt={product.name}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                        aspectRatio="16/9"
+                        priority={idx < 3}
                       />
                       <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent" />
                       <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-0 transition-opacity duration-500" />

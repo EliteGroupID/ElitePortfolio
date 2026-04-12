@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowUpRight, ExternalLink } from "lucide-react";
 import { Link } from "../../../../src/i18n/navigation";
 import { allWorks } from "../../../../src/data/works";
 import { JsonLd, generateCreativeWorkJsonLd, generateBreadcrumbJsonLd } from "../../../../src/lib/seo";
+import { OptimizedImage } from "../../../../src/components/OptimizedImage";
 
 interface PageProps {
   params: Promise<{ slug: string; locale: string }>;
@@ -72,10 +73,14 @@ export default async function CaseStudyPage({ params }: PageProps) {
       <section className="relative h-screen flex flex-col justify-end pb-20 overflow-hidden">
         {/* Hero image */}
         <div className="absolute inset-0">
-          <img
+          <OptimizedImage
             src={project.image}
             alt={project.title}
             className="w-full h-full object-cover"
+            width={1920}
+            height={1080}
+            priority
+            fadeIn={false}
           />
           <div className="absolute inset-0 bg-linear-to-t from-[#050505] via-[#050505]/60 to-[#050505]/20" />
         </div>
@@ -290,10 +295,11 @@ export default async function CaseStudyPage({ params }: PageProps) {
                 transition={{ duration: 0.8, delay: idx * 0.15 }}
                 className="overflow-hidden rounded-2xl aspect-video bg-neutral-900"
               >
-                <img
+                <OptimizedImage
                   src={img}
                   alt={`${project.title} screenshot ${idx + 1}`}
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                  aspectRatio="16/9"
                 />
               </motion.div>
             ))}

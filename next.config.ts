@@ -11,34 +11,23 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "images.unsplash.com",
-        pathname: "/**",
       },
       {
         protocol: "https",
-        hostname: "**.elitetech.dev",
+        hostname: "elitetech.dev",
       },
       {
         protocol: "https",
-        hostname: "**.cloudinary.com",
+        hostname: "cloudinary.com",
       },
     ],
-    // Image formats to serve
-    formats: ["image/webp", "image/avif"],
-    // Device sizes for responsive images
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-    // Image sizes for srcset
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    // Minimum cache time for images (in seconds)
-    minimumCacheTTL: 60,
-  },
+  } as any,
   // Performance optimizations
   compiler: {
     removeConsole: process.env.NODE_ENV === "production",
   },
   // Compression
   compress: true,
-  // Generate SWC minification
-  swcMinify: true,
   // Production source maps disabled for smaller bundles
   productionBrowserSourceMaps: false,
   // React strict mode
