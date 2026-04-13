@@ -2,10 +2,11 @@
 
 import { useState } from "react";
 import { motion } from "motion/react";
-import { ArrowUpRight, ArrowLeft, Send, CheckCircle2 } from "lucide-react";
+import { ArrowUpRight, ArrowLeft, Send, CheckCircle2, Mail, Clock, Globe, Linkedin, Twitter, Github, Instagram } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "../../../src/i18n/navigation";
 import { JsonLd, generateWebPageJsonLd, generateBreadcrumbJsonLd } from "../../../src/lib/seo";
+import { ContactMap } from "../../../src/components/ContactMap";
 
 const SERVICE_OPTIONS = [
   "Web Development",
@@ -21,6 +22,13 @@ const BUDGET_OPTIONS = [
   "$15,000 – $50,000",
   "$50,000+",
   "Let's discuss",
+];
+
+const SOCIAL_LINKS = [
+  { name: "LinkedIn", icon: Linkedin, url: "https://linkedin.com" },
+  { name: "Twitter", icon: Twitter, url: "https://twitter.com" },
+  { name: "GitHub", icon: Github, url: "https://github.com" },
+  { name: "Instagram", icon: Instagram, url: "https://instagram.com" },
 ];
 
 export function ContactPageMetadata() {
@@ -131,13 +139,13 @@ export default function ContactPage() {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
 
-            {/* Left — Info */}
-            <div className="lg:col-span-4">
+            {/* Left — Contact Info & Map */}
+            <div className="lg:col-span-5 space-y-12">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="space-y-12 lg:sticky lg:top-32"
+                className="space-y-8"
               >
                 {/* Email */}
                 <div>
@@ -146,9 +154,10 @@ export default function ContactPage() {
                   </p>
                   <a
                     href="mailto:hello@elitetech.dev"
-                    className="text-xl font-light text-neutral-200 hover:text-white transition-colors border-b border-white/10 hover:border-white pb-1"
+                    className="flex items-center space-x-3 text-xl font-light text-neutral-200 hover:text-white transition-colors border-b border-white/10 hover:border-white pb-1 group"
                   >
-                    hello@elitetech.dev
+                    <Mail className="w-5 h-5" />
+                    <span>hello@elitetech.dev</span>
                   </a>
                 </div>
 
@@ -157,40 +166,52 @@ export default function ContactPage() {
                   <p className="text-xs uppercase tracking-widest text-neutral-600 mb-3 font-medium">
                     {t("infoResponseLabel")}
                   </p>
-                  <p className="text-neutral-400 font-light">{t("infoResponseValue")}</p>
+                  <div className="flex items-center space-x-2 text-neutral-400">
+                    <Clock className="w-4 h-4" />
+                    <p className="font-light">{t("infoResponseValue")}</p>
+                  </div>
                 </div>
 
-                {/* Based in */}
+                {/* Location with Map */}
                 <div>
                   <p className="text-xs uppercase tracking-widest text-neutral-600 mb-3 font-medium">
                     {t("infoLocationLabel")}
                   </p>
-                  <p className="text-neutral-400 font-light">Indonesia — Remote Worldwide</p>
+                  <div className="flex items-center space-x-2 text-neutral-400 mb-4">
+                    <Globe className="w-4 h-4" />
+                    <p className="font-light">Jakarta, Indonesia — Remote Worldwide</p>
+                  </div>
+                  <ContactMap />
                 </div>
 
-                {/* Divider */}
-                <div className="border-t border-white/5 pt-10">
+                {/* Social Links */}
+                <div className="border-t border-white/5 pt-8">
                   <p className="text-xs uppercase tracking-widest text-neutral-600 mb-6 font-medium">
                     {t("infoFollowLabel")}
                   </p>
-                  <div className="flex flex-col space-y-3">
-                    {["LinkedIn", "Twitter / X", "GitHub", "Dribbble"].map((social) => (
-                      <a
-                        key={social}
-                        href="#"
-                        className="flex items-center justify-between text-neutral-400 hover:text-white transition-colors group"
-                      >
-                        <span className="font-light">{social}</span>
-                        <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                      </a>
-                    ))}
+                  <div className="grid grid-cols-2 gap-3">
+                    {SOCIAL_LINKS.map((social) => {
+                      const Icon = social.icon;
+                      return (
+                        <a
+                          key={social.name}
+                          href={social.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-between px-4 py-3 border border-white/10 rounded-xl text-neutral-400 hover:text-white hover:border-white/30 transition-all duration-300 group"
+                        >
+                          <span className="font-light">{social.name}</span>
+                          <Icon className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                        </a>
+                      );
+                    })}
                   </div>
                 </div>
               </motion.div>
             </div>
 
             {/* Right — Form */}
-            <div className="lg:col-span-8">
+            <div className="lg:col-span-7">
               {submitted ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.96 }}
