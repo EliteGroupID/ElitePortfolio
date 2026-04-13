@@ -7,6 +7,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "../../../src/i18n/navigation";
 import { allWorks, WORK_CATEGORIES } from "../../../src/data/works";
 import { JsonLd, generateWebPageJsonLd, generateBreadcrumbJsonLd } from "../../../src/lib/seo";
+import { OptimizedImage } from "../../../src/components/OptimizedImage";
 
 export function WorksPageMetadata() {
   return (
@@ -157,10 +158,12 @@ export default function WorksPage() {
                         : "aspect-4/3"
                     }`}
                   >
-                    <img
+                    <OptimizedImage
                       src={project.image}
                       alt={project.title}
                       className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
+                      aspectRatio={project.featured && active === "All" ? "16/7" : "4/3"}
+                      priority={idx < 2}
                     />
 
                     {/* Dark gradient */}

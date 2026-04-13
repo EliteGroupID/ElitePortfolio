@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "../../../src/i18n/navigation";
 import { allServices } from "../../../src/data/services";
 import { JsonLd, generateWebPageJsonLd, generateBreadcrumbJsonLd } from "../../../src/lib/seo";
+import { OptimizedImage } from "../../../src/components/OptimizedImage";
 
 export function ServicesPageMetadata() {
   return (
@@ -110,10 +111,12 @@ export default function ServicesPage() {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 border border-white/5 rounded-2xl overflow-hidden hover:border-white/15 transition-colors duration-500">
                   {/* Image */}
                   <div className="lg:col-span-4 relative overflow-hidden aspect-video lg:aspect-auto">
-                    <img
+                    <OptimizedImage
                       src={svc.image}
                       alt={ts(svc.titleKey)}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      aspectRatio="16/9"
+                      priority={idx < 2}
                     />
                     <div className="absolute inset-0 bg-linear-to-r from-transparent to-[#050505] hidden lg:block" />
                     <div className="absolute inset-0 bg-black/30 lg:hidden" />

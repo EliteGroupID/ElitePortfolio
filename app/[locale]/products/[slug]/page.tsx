@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowUpRight, CheckCircle2, MessageCircle } from "lucide-rea
 import { Link } from "../../../../src/i18n/navigation";
 import { products } from "../../../../src/data/products";
 import { JsonLd, generateProductJsonLd, generateBreadcrumbJsonLd } from "../../../../src/lib/seo";
+import { OptimizedImage } from "../../../../src/components/OptimizedImage";
 
 interface PageProps {
   params: Promise<{ slug: string; locale: string }>;
@@ -77,10 +78,14 @@ export default async function ProductPage({ params }: PageProps) {
       <section className="relative pt-40 pb-24 overflow-hidden border-b border-white/5">
         {/* Background image */}
         <div className="absolute inset-0 opacity-10">
-          <img
+          <OptimizedImage
             src={product.image}
             alt={product.name}
             className="w-full h-full object-cover"
+            width={1920}
+            height={1080}
+            priority
+            fadeIn={false}
           />
           <div className="absolute inset-0 bg-linear-to-b from-[#050505]/50 to-[#050505]" />
         </div>
@@ -230,10 +235,11 @@ export default async function ProductPage({ params }: PageProps) {
                   idx === 0 ? "md:col-span-2 aspect-video" : "aspect-video"
                 }`}
               >
-                <img
+                <OptimizedImage
                   src={img}
                   alt={`${product.name} screenshot ${idx + 1}`}
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                  aspectRatio="16/9"
                 />
                 <div className="absolute inset-0 bg-black/20" />
               </motion.div>
@@ -301,10 +307,11 @@ export default async function ProductPage({ params }: PageProps) {
               >
                 <Link href={`/products/${p.slug}`} className="group block">
                   <div className="relative overflow-hidden rounded-xl aspect-video bg-neutral-900 mb-4">
-                    <img
+                    <OptimizedImage
                       src={p.image}
                       alt={p.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      aspectRatio="16/9"
                     />
                     <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors duration-500" />
                     <div className="absolute top-3 left-3">
