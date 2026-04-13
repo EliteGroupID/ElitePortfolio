@@ -11,8 +11,12 @@ export function ContactMap({ className = "" }: ContactMapProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
 
-  const mapCenter = { lat: -6.2088, lng: 106.8456 }; // Jakarta coordinates
-  const markerPosition = { lat: -6.2088, lng: 106.8456 };
+  // Map coordinates - customize these for your exact location
+  const mapCenter = {
+    lat: parseFloat(process.env.NEXT_PUBLIC_MAP_LAT || "-6.2088"),
+    lng: parseFloat(process.env.NEXT_PUBLIC_MAP_LNG || "106.8456"),
+  };
+  const markerPosition = mapCenter;
 
   return (
     <div
