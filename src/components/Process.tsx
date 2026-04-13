@@ -38,10 +38,10 @@ export function Process() {
                 transition={{ duration: 0.6, delay: idx * 0.15 }}
                 className="relative group"
               >
-                <div className="hidden lg:flex w-4 h-4 rounded-full bg-[#050505] border-2 border-neutral-600 group-hover:border-white group-hover:bg-white transition-colors duration-300 absolute top-1/2 left-6 -translate-y-1/2 z-10 mb-8" />
+                <div className="hidden lg:flex w-4 h-4 rounded-full bg-[#050505] border-2 border-neutral-600 group-hover:border-white group-hover:bg-white transition-colors duration-300 absolute top-12 left-6 z-10" />
 
-                <div className="lg:pt-16 pb-6 border-l border-white/10 lg:border-l-0 pl-6 lg:pl-0">
-                  <div className="text-5xl font-light text-neutral-800 mb-4 group-hover:text-white transition-colors duration-300">
+                <div className="lg:pt-0 pb-6 border-l border-white/10 lg:border-l-0 pl-6 lg:pl-0">
+                  <div className="text-5xl font-light text-neutral-800 mb-6 group-hover:text-white transition-colors duration-300">
                     {step.id}
                   </div>
                   <h4 className="text-2xl font-medium mb-3 tracking-tight">{t(step.titleKey)}</h4>
