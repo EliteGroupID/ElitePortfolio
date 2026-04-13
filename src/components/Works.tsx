@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { OptimizedImage } from "./OptimizedImage";
 
 export function Works() {
   const t = useTranslations("works");
@@ -74,9 +75,10 @@ export function Works() {
               <Link href={`/works/${project.slug}`} className="group flex flex-col cursor-pointer">
                 <div className="relative overflow-hidden rounded-2xl mb-6 bg-neutral-900 aspect-video w-full">
                   <div className="absolute inset-0 bg-black/10 z-10 group-hover:bg-transparent transition-colors duration-500" />
-                  <img
+                  <OptimizedImage
                     src={project.image}
                     alt={t(project.titleKey)}
+                    aspectRatio="16/9"
                     className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
                   />
                   <div className="absolute inset-0 z-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">

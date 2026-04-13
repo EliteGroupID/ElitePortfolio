@@ -74,10 +74,29 @@ export default function ContactPage() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
-    // Simulate submission — replace with real API call
-    await new Promise((r) => setTimeout(r, 1200));
-    setLoading(false);
-    setSubmitted(true);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to send message");
+      }
+
+      setSubmitted(true);
+    } catch (error) {
+      console.error("Form submission error:", error);
+      alert("Failed to send message. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -245,13 +264,15 @@ export default function ContactPage() {
                   {/* Name + Email */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-xs uppercase tracking-widest text-neutral-500 mb-3 font-medium">
+                      <label htmlFor="name" className="block text-xs uppercase tracking-widest text-neutral-500 mb-3 font-medium">
                         {t("fieldName")} <span className="text-white">*</span>
                       </label>
                       <input
+                        id="name"
                         type="text"
                         name="name"
                         required
+                        autoComplete="name"
                         value={form.name}
                         onChange={handleChange}
                         placeholder={t("fieldNamePlaceholder")}
@@ -259,13 +280,15 @@ export default function ContactPage() {
                       />
                     </div>
                     <div>
-                      <label className="block text-xs uppercase tracking-widest text-neutral-500 mb-3 font-medium">
+                      <label htmlFor="email" className="block text-xs uppercase tracking-widest text-neutral-500 mb-3 font-medium">
                         {t("fieldEmail")} <span className="text-white">*</span>
                       </label>
                       <input
+                        id="email"
                         type="email"
                         name="email"
                         required
+                        autoComplete="email"
                         value={form.email}
                         onChange={handleChange}
                         placeholder={t("fieldEmailPlaceholder")}
@@ -276,12 +299,14 @@ export default function ContactPage() {
 
                   {/* Company */}
                   <div>
-                    <label className="block text-xs uppercase tracking-widest text-neutral-500 mb-3 font-medium">
+                    <label htmlFor="company" className="block text-xs uppercase tracking-widest text-neutral-500 mb-3 font-medium">
                       {t("fieldCompany")}
                     </label>
                     <input
+                      id="company"
                       type="text"
                       name="company"
+                      autoComplete="organization"
                       value={form.company}
                       onChange={handleChange}
                       placeholder={t("fieldCompanyPlaceholder")}
@@ -292,10 +317,11 @@ export default function ContactPage() {
                   {/* Service + Budget */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-xs uppercase tracking-widest text-neutral-500 mb-3 font-medium">
+                      <label htmlFor="service" className="block text-xs uppercase tracking-widest text-neutral-500 mb-3 font-medium">
                         {t("fieldService")} <span className="text-white">*</span>
                       </label>
                       <select
+                        id="service"
                         name="service"
                         required
                         value={form.service}
@@ -313,10 +339,11 @@ export default function ContactPage() {
                       </select>
                     </div>
                     <div>
-                      <label className="block text-xs uppercase tracking-widest text-neutral-500 mb-3 font-medium">
+                      <label htmlFor="budget" className="block text-xs uppercase tracking-widest text-neutral-500 mb-3 font-medium">
                         {t("fieldBudget")}
                       </label>
                       <select
+                        id="budget"
                         name="budget"
                         value={form.budget}
                         onChange={handleChange}
@@ -336,10 +363,11 @@ export default function ContactPage() {
 
                   {/* Message */}
                   <div>
-                    <label className="block text-xs uppercase tracking-widest text-neutral-500 mb-3 font-medium">
+                    <label htmlFor="message" className="block text-xs uppercase tracking-widest text-neutral-500 mb-3 font-medium">
                       {t("fieldMessage")} <span className="text-white">*</span>
                     </label>
                     <textarea
+                      id="message"
                       name="message"
                       required
                       rows={6}

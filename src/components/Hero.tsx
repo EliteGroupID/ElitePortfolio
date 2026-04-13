@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import Image from "next/image";
 
 export function Hero() {
   const t = useTranslations("hero");
@@ -11,9 +12,13 @@ export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#050505] text-white pt-20">
       <div className="absolute inset-0 z-0 opacity-40">
-        <img
-          src="https://images.unsplash.com/photo-1768979121229-392fce4957ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGRhcmslMjAzZCUyMG1vZGVybiUyMGVsZWdhbnR8ZW58MXx8fHwxNzczOTU5NTA4fDA&ixlib=rb-4.1.0&q=80&w=1080"
+        <Image
+          src="https://images.unsplash.com/photo-1768979121229-392fce4957ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGRhcmslMjAzZCUyMG1vZGVybiUyMGVsZWdhbnR8ZW58MXx8fHwxNzczOTU5NTA4fDA&ixlib=rb-4.1.0&q=80&w=1920"
           alt="Abstract 3D Background"
+          width={1920}
+          height={1080}
+          priority
+          quality={85}
           className="w-full h-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-[#050505] mix-blend-overlay" />

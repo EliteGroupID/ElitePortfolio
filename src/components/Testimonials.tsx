@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import { Quote } from "lucide-react";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 export function Testimonials() {
   const t = useTranslations("testimonials");
@@ -25,9 +26,12 @@ export function Testimonials() {
             <div className="flex flex-col items-center">
               <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden mb-5 border border-white/20 p-1">
                 <div className="w-full h-full rounded-full overflow-hidden">
-                  <img
-                    src="https://images.unsplash.com/photo-1605464705085-b7234de7a4dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBjb25maWRlbnQlMjB3b21hbiUyMHBvcnRyYWl0JTIwYmxhY2slMjBhbmQlMjB3aGl0ZXxlbnwxfHx8fDE3NzM5NTk1MDl8MA&ixlib=rb-4.1.0&q=80&w=1080"
+                  <Image
+                    src="https://images.unsplash.com/photo-1605464705085-b7234de7a4dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBjb25maWRlbnQlMjB3b21hbiUyMHBvcnRyYWl0JTIwYmxhY2slMjBhbmQlMjB3aGl0ZXxlbnwxfHx8fDE3NzM5NTk1MDl8MA&ixlib=rb-4.1.0&q=80&w=200"
                     alt={t("personName")}
+                    width={200}
+                    height={200}
+                    quality={85}
                     className="w-full h-full object-cover grayscale"
                   />
                 </div>

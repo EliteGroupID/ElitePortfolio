@@ -21,6 +21,7 @@ const nextConfig = {
         hostname: "cloudinary.com",
       },
     ],
+    formats: ["image/avif", "image/webp"],
   } as any,
   // Performance optimizations
   compiler: {
@@ -32,6 +33,47 @@ const nextConfig = {
   productionBrowserSourceMaps: false,
   // React strict mode
   reactStrictMode: true,
+  // Webpack optimizations
+  webpack: (config: any, { isServer }: { isServer: boolean }) => {
+    // Code splitting for better performance
+    if (!isServer) {
+      config.optimization = {
+        ...config.optimization,
+        splitChunks: {
+          chunks: "all",
+          cacheGroups: {
+            default: false,
+            vendors: false,
+            commons: {
+              name: "commons",
+              chunks: "all",
+              minChunks: 2,
+              priority: 0,
+            },
+            react: {
+              name: "react",
+              chunks: "all",
+              test: /[\\/]node_modules[\\/](react|react-dom|scheduler)[\\/]/,
+              priority: 20,
+            },
+            framerMotion: {
+              name: "framer-motion",
+              chunks: "all",
+              test: /[\\/]node_modules[\\/](framer-motion|motion)[\\/]/,
+              priority: 15,
+            },
+            lucide: {
+              name: "lucide",
+              chunks: "all",
+              test: /[\\/]node_modules[\\/]lucide-react[\\/]/,
+              priority: 10,
+            },
+          },
+        },
+      };
+    }
+    return config;
+  },
   // Headers for security and performance
   async headers() {
     return [
@@ -64,6 +106,26 @@ const nextConfig = {
           },
         ],
       },
+      // Static assets with long cache
+      {
+        source: "/_next/static/(.*)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      // Images with long cache
+      {
+        source: "/_next/image(.*)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
       {
         source: "/robots.txt",
         headers: [
@@ -87,7 +149,16 @@ const nextConfig = {
         headers: [
           {
             key: "Cache-Control",
-            value: "public, max-age=604800",
+            value: "public, max-age=604800, immutable",
+          },
+        ],
+      },
+      {
+        source: "/manifest.json",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=86400, must-revalidate",
           },
         ],
       },

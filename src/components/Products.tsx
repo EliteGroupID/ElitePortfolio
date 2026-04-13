@@ -6,6 +6,7 @@ import { ArrowUpRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { products, type ProductCategory } from "@/data/products";
+import { OptimizedImage } from "./OptimizedImage";
 
 type Filter = "All" | ProductCategory;
 
@@ -74,9 +75,10 @@ export function Products() {
                   <div className="h-full flex flex-col border border-white/5 rounded-2xl overflow-hidden hover:border-white/15 transition-colors duration-500">
                     {/* Image */}
                     <div className="relative overflow-hidden aspect-video bg-neutral-900">
-                      <img
+                      <OptimizedImage
                         src={product.image}
                         alt={product.name}
+                        aspectRatio="16/9"
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                       />
                       <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors duration-500" />

@@ -1,16 +1,34 @@
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import { Hero } from "../../src/components/Hero";
-import { TechMarquee } from "../../src/components/TechMarquee";
 import { Services } from "../../src/components/Services";
 import { Works } from "../../src/components/Works";
-import { Products } from "../../src/components/Products";
-import { Process } from "../../src/components/Process";
-import { WhyUs } from "../../src/components/WhyUs";
-import { About } from "../../src/components/About";
-import { Testimonials } from "../../src/components/Testimonials";
-import { CTA } from "../../src/components/CTABanner";
-import { Footer } from "../../src/components/Footer";
 import { JsonLd, generateWebPageJsonLd } from "../../src/lib/seo";
+// Lazy load components below the fold for better performance
+const TechMarquee = dynamic(() => import("../../src/components/TechMarquee").then(m => ({ default: m.TechMarquee })), {
+  ssr: true,
+});
+const Products = dynamic(() => import("../../src/components/Products").then(m => ({ default: m.Products })), {
+  ssr: true,
+});
+const Process = dynamic(() => import("../../src/components/Process").then(m => ({ default: m.Process })), {
+  ssr: true,
+});
+const WhyUs = dynamic(() => import("../../src/components/WhyUs").then(m => ({ default: m.WhyUs })), {
+  ssr: true,
+});
+const About = dynamic(() => import("../../src/components/About").then(m => ({ default: m.About })), {
+  ssr: true,
+});
+const Testimonials = dynamic(() => import("../../src/components/Testimonials").then(m => ({ default: m.Testimonials })), {
+  ssr: true,
+});
+const CTA = dynamic(() => import("../../src/components/CTABanner").then(m => ({ default: m.CTA })), {
+  ssr: true,
+});
+const Footer = dynamic(() => import("../../src/components/Footer").then(m => ({ default: m.Footer })), {
+  ssr: true,
+});
 
 export const metadata: Metadata = {
   title: "Home",
