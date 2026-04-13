@@ -15,10 +15,11 @@ import "../globals.css";
 // Optimized font loading with next/font
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "900"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
   variable: "--font-poppins",
   preload: true,
+  adjustFontFallback: true,
 });
 
 export const metadata: Metadata = {
@@ -105,6 +106,8 @@ export default async function LocaleLayout({
       className={poppins.variable}
     >
       <head>
+        {/* RSS auto-discovery */}
+        <link rel="alternate" type="application/rss+xml" title="ELITECH ID. RSS Feed" href="https://elitetech.dev/rss.xml" />
         {/* Theme script for preventing flash of unstyled content */}
         <script
           dangerouslySetInnerHTML={{

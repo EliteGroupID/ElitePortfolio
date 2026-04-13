@@ -1,11 +1,18 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
-import { Hero } from "../../src/components/Hero";
-import { Services } from "../../src/components/Services";
-import { Works } from "../../src/components/Works";
 import { JsonLd, generateWebPageJsonLd } from "../../src/lib/seo";
-// Lazy load components below the fold for better performance
+// Lazy load all components for better performance
+const Hero = dynamic(() => import("../../src/components/Hero").then(m => ({ default: m.Hero })), {
+  ssr: true,
+  loading: () => <div className="min-h-screen bg-[#050505]" />,
+});
+const Services = dynamic(() => import("../../src/components/Services").then(m => ({ default: m.Services })), {
+  ssr: true,
+});
 const TechMarquee = dynamic(() => import("../../src/components/TechMarquee").then(m => ({ default: m.TechMarquee })), {
+  ssr: true,
+});
+const Works = dynamic(() => import("../../src/components/Works").then(m => ({ default: m.Works })), {
   ssr: true,
 });
 const Products = dynamic(() => import("../../src/components/Products").then(m => ({ default: m.Products })), {
